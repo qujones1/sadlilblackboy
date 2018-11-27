@@ -39,7 +39,7 @@ export default () => (
       />
     </Playlist>
     <Content>
-      <h1>Lets be sad together.</h1>
+      <h1>Lets all be sad together.</h1>
     </Content>
   </Layout>
 );
