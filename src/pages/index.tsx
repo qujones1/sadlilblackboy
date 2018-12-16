@@ -1,3 +1,5 @@
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
 import React from "react";
 import styled from "react-emotion";
 import { Layout } from "../components/layout";
@@ -5,7 +7,6 @@ import { Layout } from "../components/layout";
 const Playlist = styled.div`
   width: 100%;
   position: relative;
-  height: 0;
   padding-bottom: 56.25%;
 
   iframe {
@@ -21,25 +22,65 @@ const Playlist = styled.div`
 `;
 
 const Content = styled.section`
-  color: white;
-  text-align: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 960px;
-  padding-top: 15%;
 `;
 
-export default () => (
+const Page = styled.div`
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-direction: column;
+`;
+
+const Header = styled.h1`
+  font-family: "edosz";
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  margin-top: 24px;
+`;
+
+const ImgContainer = styled.a`
+  width: 50%;
+`;
+
+export default ({ data }) => (
   <Layout>
-    <Playlist>
-      <iframe
-        allow="autoplay"
-        src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
-      />
-    </Playlist>
-    <Content>
-      <h1>Lets all be sad together.</h1>
-    </Content>
+    <Page>
+      <Header>Let's all be sad together</Header>
+      <Playlist>
+        <iframe
+          allow="autoplay"
+          src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
+        />
+      </Playlist>
+      <Content>
+        <ImgContainer href="https://open.spotify.com/album/6BGsidcKIY3LwE0ljn7vsE">
+          <Img fluid={data.sad.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://open.spotify.com/album/7ay6KJtEEUtgksRbwDEZqu">
+          <Img fluid={data.vol1.childImageSharp.fluid} />
+        </ImgContainer>
+      </Content>
+    </Page>
   </Layout>
 );
+
+export const query = graphql`
+  {
+    vol1: file(relativePath: { eq: "vol1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    sad: file(relativePath: { eq: "sad.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`;

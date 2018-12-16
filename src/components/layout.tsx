@@ -43,10 +43,8 @@ const LogoContainer = styled.a`
     margin-bottom: 0;
     margin-left: 10px;
     margin-right: 20px;
-
-    @media (max-width: 660px) {
-      font-size: 1em;
-    }
+    font-family: "edosz";
+    font-weight: normal;
   }
 `;
 
@@ -93,7 +91,7 @@ export const Layout = ({ children }) => (
             title
           }
         }
-        logo: file(relativePath: { eq: "logo.png" }) {
+        logo: file(relativePath: { eq: "logo.jpg" }) {
           childImageSharp {
             fixed(width: 50) {
               ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -110,7 +108,7 @@ export const Layout = ({ children }) => (
             {
               name: "description",
               content:
-                "Who are you? Why are you here? Lofi hiphop, music, anime, and chill vibes. Lets be sad together."
+                "Who are you? Why are you here? Lofi hiphop, music, anime, and chill vibes. Lets all be sad together."
             }
           ]}
         >
