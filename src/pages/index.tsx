@@ -21,6 +21,12 @@ const Playlist = styled.div`
   }
 `;
 
+const Merch = styled.section`
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+`;
+
 const Content = styled.section`
   display: flex;
 `;
@@ -44,10 +50,25 @@ const ImgContainer = styled.a`
   width: 50%;
 `;
 
+
 export default ({ data }) => (
   <Layout>
     <Page>
       <Header>Let's all be sad together</Header>
+      <Merch>
+        <ImgContainer href="https://teespring.com/SadlilBlackSleeve">
+          <Img fixed={data.long_sleeve_black.childImageSharp.fixed} />
+        </ImgContainer>
+        <ImgContainer href="https://teespring.com/sadLilLongSleeve">
+          <Img fixed={data.long_sleeve_white.childImageSharp.fixed} />
+        </ImgContainer>
+        <ImgContainer href="https://teespring.com/sadlilhoodieblack">
+          <Img fixed={data.hoodie_black.childImageSharp.fixed} />
+        </ImgContainer>
+        <ImgContainer href="https://teespring.com/sadlilhoodie">
+          <Img fixed={data.hoodie_white.childImageSharp.fixed} />
+        </ImgContainer>
+      </Merch>
       <Playlist>
         <iframe
           allow="autoplay"
@@ -74,6 +95,34 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    hoodie_white: file(relativePath: { eq: "Hoodie_white.jpg" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    hoodie_black: file(relativePath: { eq: "Hoodie_black.jpg" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    long_sleeve_white: file(relativePath: { eq: "long_sleeve_white.jpg" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    long_sleeve_black: file(relativePath: { eq: "Long_sleeve_black.jpg" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
     broken: file(relativePath: { eq: "Broken.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
