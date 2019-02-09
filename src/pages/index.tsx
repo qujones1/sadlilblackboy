@@ -55,6 +55,12 @@ export default ({ data }) => (
         />
       </Playlist>
       <Content>
+        <ImgContainer href="https://open.spotify.com/album/0z9YdNT0VGHAhGoqsT82tN">
+          <Img fluid={data.broken.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://open.spotify.com/album/3gg0OAbAq1ZByeuQRmLT50">
+          <Img fluid={data.alone.childImageSharp.fluid} />
+        </ImgContainer>
         <ImgContainer href="https://open.spotify.com/album/6BGsidcKIY3LwE0ljn7vsE">
           <Img fluid={data.sad.childImageSharp.fluid} />
         </ImgContainer>
@@ -68,6 +74,20 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    broken: file(relativePath: { eq: "Broken.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    alone: file(relativePath: { eq: "alone.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     vol1: file(relativePath: { eq: "vol1.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
