@@ -10,6 +10,8 @@ const instagramSvg = require("../assets/instagram.svg") as string;
 const soundcloudSvg = require("../assets/soundcloud.svg") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
 const youtubeSvg = require("../assets/youtube.svg") as string;
+const twitterSvg = require("../assets/twitter.svg") as string;
+
 
 const Nav = styled.nav`
   background-color: rgb(255, 255, 255);
@@ -79,6 +81,10 @@ const socialLinks = [
   {
     logo: youtubeSvg,
     href: "https://www.youtube.com/channel/UCF-q9z4IF8CUWyj1_8hZDtg"
+  },
+  {
+    logo: twitterSvg,
+    href: "https://twitter.com/SadLilBlackBoy"
   }
 ];
 
