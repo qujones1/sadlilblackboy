@@ -23,7 +23,6 @@ const Playlist = styled.div`
 
 const Merch = styled.section`
   display: flex;
-  width: 75%;
   margin: 0 auto;
 `;
 
@@ -56,6 +55,9 @@ export default ({ data }) => (
     <Page>
       <Header>Let's all be sad together</Header>
       <Merch>
+        <ImgContainer href="https://teespring.com/sadlilphonecase">
+          <Img fixed={data.iphone.childImageSharp.fixed} />
+        </ImgContainer>
         <ImgContainer href="https://teespring.com/SadlilBlackSleeve">
           <Img fixed={data.long_sleeve_black.childImageSharp.fixed} />
         </ImgContainer>
@@ -67,6 +69,9 @@ export default ({ data }) => (
         </ImgContainer>
         <ImgContainer href="https://teespring.com/sadlilhoodie">
           <Img fixed={data.hoodie_white.childImageSharp.fixed} />
+        </ImgContainer>
+        <ImgContainer href="https://teespring.com/sadlilblackPhone">
+          <Img fixed={data.iphone_black.childImageSharp.fixed} />
         </ImgContainer>
       </Merch>
       <Playlist>
@@ -95,6 +100,13 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    iphone: file(relativePath: { eq: "iphone.jpg" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
     hoodie_white: file(relativePath: { eq: "Hoodie_white.jpg" }) {
       childImageSharp {
         fixed(width: 120, height: 120) {
@@ -117,6 +129,13 @@ export const query = graphql`
       }
     }
     long_sleeve_black: file(relativePath: { eq: "Long_sleeve_black.jpg" }) {
+      childImageSharp {
+        fixed(width: 120, height: 120) {
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        }
+      }
+    }
+    iphone_black: file(relativePath: { eq: "iphone_black.jpg" }) {
       childImageSharp {
         fixed(width: 120, height: 120) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
