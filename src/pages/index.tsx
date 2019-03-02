@@ -24,6 +24,7 @@ const Playlist = styled.div`
 const Merch = styled.section`
   display: flex;
   margin: 0 auto;
+  width: 75%;
 `;
 
 const Content = styled.section`
@@ -56,22 +57,22 @@ export default ({ data }) => (
       <Header>Let's all be sad together</Header>
       <Merch>
         <ImgContainer href="https://teespring.com/sadlilphonecase">
-          <Img fixed={data.iphone.childImageSharp.fixed} />
+          <Img fluid={data.iphone.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://teespring.com/SadlilBlackSleeve">
-          <Img fixed={data.long_sleeve_black.childImageSharp.fixed} />
+          <Img fluid={data.long_sleeve_black.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://teespring.com/sadLilLongSleeve">
-          <Img fixed={data.long_sleeve_white.childImageSharp.fixed} />
+          <Img fluid={data.long_sleeve_white.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://teespring.com/sadlilhoodieblack">
-          <Img fixed={data.hoodie_black.childImageSharp.fixed} />
+          <Img fluid={data.hoodie_black.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://teespring.com/sadlilhoodie">
-          <Img fixed={data.hoodie_white.childImageSharp.fixed} />
+          <Img fluid={data.hoodie_white.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://teespring.com/sadlilblackPhone">
-          <Img fixed={data.iphone_black.childImageSharp.fixed} />
+          <Img fluid={data.iphone_black.childImageSharp.fluid} />
         </ImgContainer>
       </Merch>
       <Playlist>
@@ -81,6 +82,9 @@ export default ({ data }) => (
         />
       </Playlist>
       <Content>
+        <ImgContainer href="https://open.spotify.com/album/2BiTUrtfW6Lea0Ppku1o1t">
+          <Img fluid={data.hope.childImageSharp.fluid} />
+        </ImgContainer>
         <ImgContainer href="https://open.spotify.com/album/0z9YdNT0VGHAhGoqsT82tN">
           <Img fluid={data.broken.childImageSharp.fluid} />
         </ImgContainer>
@@ -102,43 +106,50 @@ export const query = graphql`
   {
     iphone: file(relativePath: { eq: "iphone.jpg" }) {
       childImageSharp {
-        fixed(width: 120, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fluid(maxWidth: 120) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     hoodie_white: file(relativePath: { eq: "Hoodie_white.jpg" }) {
       childImageSharp {
-        fixed(width: 120, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fluid(maxWidth: 120) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     hoodie_black: file(relativePath: { eq: "Hoodie_black.jpg" }) {
       childImageSharp {
-        fixed(width: 120, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fluid(maxWidth: 120) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     long_sleeve_white: file(relativePath: { eq: "long_sleeve_white.jpg" }) {
       childImageSharp {
-        fixed(width: 120, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fluid(maxWidth: 120) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     long_sleeve_black: file(relativePath: { eq: "Long_sleeve_black.jpg" }) {
       childImageSharp {
-        fixed(width: 120, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fluid(maxWidth: 120) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     iphone_black: file(relativePath: { eq: "iphone_black.jpg" }) {
       childImageSharp {
-        fixed(width: 120, height: 120) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+        fluid(maxWidth: 120) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    hope: file(relativePath: { eq: "Hope.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
