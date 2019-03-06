@@ -98,7 +98,7 @@ const socialLinks = [
   },
   {
     logo: youtubeSvg,
-    href: "https://www.youtube.com/channel/UCF-q9z4IF8CUWyj1_8hZDtg"
+    href: "https://www.youtube.com/c/sadlilblackboy?sub_confirmation=1"
   }
 ];
 
