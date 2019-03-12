@@ -90,7 +90,7 @@ const socialLinks = [
   },
   {
     logo: teespringSvg,
-    href: "https://teespring.com/stores/sadlilblackboy"
+    href: "https://teespring.com/stores/sadlilblackboy?pr=sadboy20"
   },
   {
     logo: twitterSvg,
