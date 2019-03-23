@@ -16,24 +16,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        name: "sadlilblackboy",
-        short_name: "sadlilblackboy",
-        start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
-        display: "minimal-ui",
-        icon: "src/assets/logo.jpg"
-      }
-    },
-    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ["UA-79031036-3"],
         pluginConfig: {}
       }
     },
-    "gatsby-plugin-offline"
+    "gatsby-plugin-remove-serviceworker"
   ]
 };
