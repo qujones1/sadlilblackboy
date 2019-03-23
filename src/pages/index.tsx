@@ -23,6 +23,9 @@ const Playlist = styled.div`
 
 const Content = styled.section`
   display: flex;
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Page = styled.div`
@@ -41,7 +44,10 @@ const Header = styled.h1`
 `;
 
 const ImgContainer = styled.a`
-  width: 50%;
+  width: 100%;
+  @media (max-width: 800px) {
+    flex-basis: 33%;
+  }
 `;
 
 export default ({ data }) => (
@@ -55,19 +61,22 @@ export default ({ data }) => (
         />
       </Playlist>
       <Content>
-        <ImgContainer href="https://open.spotify.com/album/2BiTUrtfW6Lea0Ppku1o1t">
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/without-good-reason">
+          <Img fluid={data.WithoutReason.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/hope">
           <Img fluid={data.hope.childImageSharp.fluid} />
         </ImgContainer>
-        <ImgContainer href="https://open.spotify.com/album/0z9YdNT0VGHAhGoqsT82tN">
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/broken">
           <Img fluid={data.broken.childImageSharp.fluid} />
         </ImgContainer>
-        <ImgContainer href="https://open.spotify.com/album/3gg0OAbAq1ZByeuQRmLT50">
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/ghev">
           <Img fluid={data.alone.childImageSharp.fluid} />
         </ImgContainer>
-        <ImgContainer href="https://open.spotify.com/album/6BGsidcKIY3LwE0ljn7vsE">
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/fH50">
           <Img fluid={data.sad.childImageSharp.fluid} />
         </ImgContainer>
-        <ImgContainer href="https://open.spotify.com/album/7ay6KJtEEUtgksRbwDEZqu">
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/fkO9">
           <Img fluid={data.vol1.childImageSharp.fluid} />
         </ImgContainer>
       </Content>
@@ -77,6 +86,13 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    WithoutReason: file(relativePath: { eq: "Without_good_reason.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     hope: file(relativePath: { eq: "Hope.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
