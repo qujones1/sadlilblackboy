@@ -61,6 +61,9 @@ export default ({ data }) => (
         />
       </Playlist>
       <Content>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-2">
+          <Img fluid={data.vol2.childImageSharp.fluid} />
+        </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/without-good-reason">
           <Img fluid={data.WithoutReason.childImageSharp.fluid} />
         </ImgContainer>
@@ -86,6 +89,13 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    vol2: file(relativePath: { eq: "vol2.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     WithoutReason: file(relativePath: { eq: "Without_good_reason.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
