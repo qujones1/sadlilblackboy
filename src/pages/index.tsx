@@ -61,6 +61,9 @@ export default ({ data }) => (
         />
       </Playlist>
       <Content>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
+          <Img fluid={data.WRFR.childImageSharp.fluid} />
+        </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/late-nights">
           <Img fluid={data.latenights.childImageSharp.fluid} />
         </ImgContainer>
@@ -92,6 +95,13 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    WRFR: file(relativePath: { eq: "WRFR.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     latenights: file(relativePath: { eq: "latenights.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
