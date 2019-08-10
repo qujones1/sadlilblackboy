@@ -7,7 +7,7 @@ import { Layout } from "../components/layout";
 const Playlist = styled.div`
   width: 100%;
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 55%;
 
   iframe {
     border: none;
@@ -40,8 +40,24 @@ const Header = styled.h1`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-top: 24px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
+
+const Body = styled.a`
+  font-family: "edosz";
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 5px;
+`;
+
+const ClickMe = styled.a`
+text-align: right;
+color: white;
+`;
+
 
 const ImgContainer = styled.a`
   width: 100%;
@@ -60,9 +76,12 @@ export default ({ data }) => (
           src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
         />
       </Playlist>
+        <Body>
+          ⬇️ Stream Beats Below ⬇️
+        </Body>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
-          <Img fluid={data.WRFR.childImageSharp.fluid} />
+          <Img fluid={data.wrfr.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/late-nights">
           <Img fluid={data.latenights.childImageSharp.fluid} />
@@ -95,7 +114,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    WRFR: file(relativePath: { eq: "WRFR.jpg" }) {
+    wrfr: file(relativePath: { eq: "WRFR.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
