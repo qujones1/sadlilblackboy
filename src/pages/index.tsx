@@ -4,6 +4,9 @@ import React from "react";
 import styled from "react-emotion";
 import { Layout } from "../components/layout";
 
+const appleSvg = require("../assets/apple.svg") as string;
+const spotifySvg = require("../assets/spotify.svg") as string;
+
 const Playlist = styled.div`
   width: 100%;
   position: relative;
@@ -18,6 +21,10 @@ const Playlist = styled.div`
     right: 0;
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
   }
 `;
 
@@ -44,26 +51,31 @@ const Header = styled.h1`
   margin-bottom: 5px;
 `;
 
-const Body = styled.a`
+const Body = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "edosz";
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-left: 10px;
-  margin-bottom: 5px;
+  margin: 12px auto;
+  width: 75%;
 `;
-
-const ClickMe = styled.a`
-text-align: right;
-color: white;
-`;
-
 
 const ImgContainer = styled.a`
   width: 100%;
   @media (max-width: 800px) {
     flex-basis: 33%;
   }
+`;
+
+const PromoText = styled.span`
+  margin: 0 8px;
+`;
+
+const SocialImg = styled.img`
+  width: 35px;
 `;
 
 export default ({ data }) => (
@@ -76,9 +88,15 @@ export default ({ data }) => (
           src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
         />
       </Playlist>
-        <Body>
-          ⬇️ Stream Beats Below ⬇️
-        </Body>
+      <Body>
+        <a href="memes.com">
+          <SocialImg src={appleSvg} />
+        </a>
+        <PromoText>Stream Beats Below</PromoText>
+        <a href="memes.com">
+          <SocialImg src={spotifySvg} />
+        </a>
+      </Body>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
           <Img fluid={data.wrfr.childImageSharp.fluid} />
