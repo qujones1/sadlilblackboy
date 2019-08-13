@@ -24,7 +24,7 @@ const Playlist = styled.div`
   }
 
   @media (max-width: 800px) {
-    display: none;
+    //display: none;
   }
 `;
 
@@ -47,8 +47,8 @@ const Header = styled.h1`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 `;
 
 const Body = styled.div`
@@ -59,7 +59,7 @@ const Body = styled.div`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin: 12px auto;
+  margin: 10px auto;
   width: 75%;
 `;
 
@@ -89,11 +89,11 @@ export default ({ data }) => (
         />
       </Playlist>
       <Body>
-        <a href="memes.com">
+        <a href="https://music.apple.com/us/artist/nuq/1403168719">
           <SocialImg src={appleSvg} />
         </a>
         <PromoText>Stream Beats Below</PromoText>
-        <a href="memes.com">
+        <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
           <SocialImg src={spotifySvg} />
         </a>
       </Body>
