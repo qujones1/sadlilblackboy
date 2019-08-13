@@ -74,7 +74,7 @@ const SocialLinks = styled.div`
 const socialLinks = [
   {
     logo: appleSvg,
-    href: "https://itunes.apple.com/us/artist/nuq/1403168719"
+    href: "https://music.apple.com/us/artist/sadlilblackboy/1475838174"
   },
   {
     logo: instagramSvg,
@@ -86,7 +86,7 @@ const socialLinks = [
   },
   {
     logo: spotifySvg,
-    href: "https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X"
+    href: "https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa"
   },
   {
     logo: teespringSvg,

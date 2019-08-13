@@ -4,10 +4,13 @@ import React from "react";
 import styled from "react-emotion";
 import { Layout } from "../components/layout";
 
+const appleSvg = require("../assets/apple.svg") as string;
+const spotifySvg = require("../assets/spotify.svg") as string;
+
 const Playlist = styled.div`
   width: 100%;
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 50%;
 
   iframe {
     border: none;
@@ -18,6 +21,10 @@ const Playlist = styled.div`
     right: 0;
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 800px) {
+    //display: none;
   }
 `;
 
@@ -40,7 +47,20 @@ const Header = styled.h1`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-top: 24px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+`;
+
+const Body = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "edosz";
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  margin: 10px auto;
+  width: 75%;
 `;
 
 const ImgContainer = styled.a`
@@ -48,6 +68,14 @@ const ImgContainer = styled.a`
   @media (max-width: 800px) {
     flex-basis: 33%;
   }
+`;
+
+const PromoText = styled.span`
+  margin: 0 8px;
+`;
+
+const SocialImg = styled.img`
+  width: 35px;
 `;
 
 export default ({ data }) => (
@@ -60,9 +88,18 @@ export default ({ data }) => (
           src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
         />
       </Playlist>
+      <Body>
+        <a href="https://music.apple.com/us/artist/nuq/1403168719">
+          <SocialImg src={appleSvg} />
+        </a>
+        <PromoText>Stream Beats Below</PromoText>
+        <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+          <SocialImg src={spotifySvg} />
+        </a>
+      </Body>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
-          <Img fluid={data.WRFR.childImageSharp.fluid} />
+          <Img fluid={data.wrfr.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/late-nights">
           <Img fluid={data.latenights.childImageSharp.fluid} />
@@ -95,7 +132,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    WRFR: file(relativePath: { eq: "WRFR.jpg" }) {
+    wrfr: file(relativePath: { eq: "WRFR.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
