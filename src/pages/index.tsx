@@ -10,7 +10,7 @@ const spotifySvg = require("../assets/spotify.svg") as string;
 const Playlist = styled.div`
   width: 100%;
   position: relative;
-  padding-bottom: 55%;
+  padding-bottom: 50%;
 
   iframe {
     border: none;
@@ -47,8 +47,8 @@ const Header = styled.h1`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 `;
 
 const Body = styled.div`
