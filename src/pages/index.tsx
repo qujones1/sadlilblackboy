@@ -54,10 +54,22 @@ const Header = styled.h1`
   margin-bottom: 2px;
 `;
 
+const StreamHeader = styled.h1`
+  display: flex;
+  font-family: "Helvetica Neue Condensed";
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  background-color: white;
+  margin-bottom: 0px;
+`;
+
 const Body = styled.div`
   background-color: white;
   display: flex;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue Condensed";
   font-weight: 400;
   color: white;
 `;
@@ -84,21 +96,27 @@ const StreamFrame = styled.div`
 `;
 
 const Band = styled.a`
+  display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
   font-family:  "Helvetica Neue";
   font-weight: 400;
-  text-align: left;
+  max-width: 100px;
 `;
 
 const StreamText = styled.span`
-
 `;
 
 const SocialImg = styled.img`
   width: 50px;
   margin: 10px auto;
   flex-basis: 100%;
+`;
+
+const MerchContainer = styled.div`
+  display: flex;
+  width: 100%;
 `;
 
 export default ({ data }) => (
@@ -111,7 +129,7 @@ export default ({ data }) => (
           src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
         />
       </Playlist>
-      <PromoText> Stream Everywhere </PromoText>
+      <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
           <PromoText> Beats </PromoText>
@@ -152,9 +170,9 @@ export default ({ data }) => (
           </Band>
         </StreamFrame>
       </Body>
-      <Content>
+      <MerchContainer>
 
-      </Content>
+      </MerchContainer>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
           <Img fluid={data.happy.childImageSharp.fluid} />
