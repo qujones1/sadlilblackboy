@@ -14,6 +14,7 @@ const spotifySvg = require("../assets/spotify.svg") as string;
 const teespringSvg = require("../assets/teespring.svg") as string;
 const twitterSvg = require("../assets/twitter.svg") as string;
 const youtubeSvg = require("../assets/youtube.svg") as string;
+const bandcampSvg = require("../assets/Bandcamp.svg") as string;
 
 const Nav = styled.nav`
   background-color: rgb(255, 255, 255);
@@ -49,7 +50,7 @@ const LogoContainer = styled.a`
     margin-bottom: 0;
     margin-left: 10px;
     margin-right: 20px;
-    font-family: "edosz";
+    font-family: "Helvetica Neue Condensed";
     font-weight: normal;
   }
 `;
@@ -72,10 +73,7 @@ const SocialLinks = styled.div`
 `;
 
 const socialLinks = [
-  {
-    logo: appleSvg,
-    href: "https://music.apple.com/us/artist/sadlilblackboy/1475838174"
-  },
+
   {
     logo: instagramSvg,
     href: "https://www.instagram.com/sadlilblackboy/"
@@ -85,8 +83,8 @@ const socialLinks = [
     href: "https://soundcloud.com/nuq-the-most-dope"
   },
   {
-    logo: spotifySvg,
-    href: "https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa"
+    logo: bandcampSvg,
+    href: "https://sadlilblackboy.bandcamp.com/"
   },
   {
     logo: teespringSvg,
@@ -155,7 +153,7 @@ export const Layout = ({ children }) => {
         <NavContainer>
           <LogoContainer href="/">
             <Img fixed={data.logo.childImageSharp.fixed} />
-            <h1>SADLILBLACKBOY</h1>
+            <h1>[sadlilblackboy]</h1>
           </LogoContainer>
           <SocialLinks>
             {socialLinks.map((l, i) => {

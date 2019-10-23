@@ -6,6 +6,9 @@ import { Layout } from "../components/layout";
 
 const appleSvg = require("../assets/apple.svg") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
+const googlePng = require("../assets/googlePlay.png") as string;
+const amazonPng = require("../assets/amazon.png") as string;
+
 
 const Playlist = styled.div`
   width: 100%;
@@ -54,7 +57,7 @@ const Header = styled.h1`
 const Body = styled.div`
   background-color: white;
   display: flex;
-  font-family: "edosz";
+  font-family: "Helvetica Neue";
   font-weight: 400;
   color: white;
 `;
@@ -67,7 +70,7 @@ const ImgContainer = styled.a`
 `;
 
 const PromoText = styled.span`
-  font-family: "edosz";
+  font-family:  "Helvetica Neue";
   font-weight: 400;
   text-align: center;
   background-color: white;
@@ -77,6 +80,18 @@ const PromoText = styled.span`
 const StreamFrame = styled.div`
   flex: 50%;
 
+
+`;
+
+const Band = styled.a`
+  justify-content: center;
+  align-items: center;
+  font-family:  "Helvetica Neue";
+  font-weight: 400;
+  text-align: left;
+`;
+
+const StreamText = styled.span`
 
 `;
 
@@ -99,35 +114,47 @@ export default ({ data }) => (
       <PromoText> Stream Everywhere </PromoText>
       <Body>
         <StreamFrame>
-          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+          <PromoText> Beats </PromoText>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
             <SocialImg src={appleSvg} />
-          </a>
-          <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+            <StreamText> Apple Music </StreamText>
+          </Band>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
             <SocialImg src={spotifySvg} />
-          </a>
-          <a href="https://music.apple.com/us/artist/nuq/1403168719">
-            <SocialImg src={appleSvg} />
-          </a>
-          <a href="https://music.apple.com/us/artist/nuq/1403168719">
-            <SocialImg src={appleSvg} />
-          </a>
+            <StreamText> Spotify </StreamText>
+          </Band>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={googlePng} />
+            <StreamText> Google Play </StreamText>
+          </Band>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={amazonPng} />
+            <StreamText> Amazon Music </StreamText>
+          </Band>
         </StreamFrame>
         <StreamFrame>
-          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+          <PromoText> Singles </PromoText>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
             <SocialImg src={appleSvg} />
-          </a>
-          <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+            <StreamText> Apple Music </StreamText>
+          </Band>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
             <SocialImg src={spotifySvg} />
-          </a>
-          <a href="https://music.apple.com/us/artist/nuq/1403168719">
-            <SocialImg src={appleSvg} />
-          </a>
-          <a href="https://music.apple.com/us/artist/nuq/1403168719">
-            <SocialImg src={appleSvg} />
-          </a>
+            <StreamText> Spotify </StreamText>
+          </Band>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={googlePng} />
+            <StreamText> Google Play </StreamText>
+          </Band>
+          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={amazonPng} />
+            <StreamText> Amazon Music </StreamText>
+          </Band>
         </StreamFrame>
-
       </Body>
+      <Content>
+
+      </Content>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
           <Img fluid={data.happy.childImageSharp.fluid} />
