@@ -52,15 +52,11 @@ const Header = styled.h1`
 `;
 
 const Body = styled.div`
+  background-color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "edosz";
   font-weight: 400;
-  text-align: center;
   color: white;
-  margin: 10px auto;
-  width: 75%;
 `;
 
 const ImgContainer = styled.a`
@@ -71,11 +67,23 @@ const ImgContainer = styled.a`
 `;
 
 const PromoText = styled.span`
-  margin: 0 8px;
+  font-family: "edosz";
+  font-weight: 400;
+  text-align: center;
+  background-color: white;
+  color: black;
+`;
+
+const StreamFrame = styled.div`
+  flex: 50%;
+
+
 `;
 
 const SocialImg = styled.img`
-  width: 35px;
+  width: 50px;
+  margin: 10px auto;
+  flex-basis: 100%;
 `;
 
 export default ({ data }) => (
@@ -88,14 +96,37 @@ export default ({ data }) => (
           src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
         />
       </Playlist>
+      <PromoText> Stream Everywhere </PromoText>
       <Body>
-        <a href="https://music.apple.com/us/artist/nuq/1403168719">
-          <SocialImg src={appleSvg} />
-        </a>
-        <PromoText>Stream Beats Below</PromoText>
-        <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
-          <SocialImg src={spotifySvg} />
-        </a>
+        <StreamFrame>
+          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={appleSvg} />
+          </a>
+          <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+            <SocialImg src={spotifySvg} />
+          </a>
+          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={appleSvg} />
+          </a>
+          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={appleSvg} />
+          </a>
+        </StreamFrame>
+        <StreamFrame>
+          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={appleSvg} />
+          </a>
+          <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+            <SocialImg src={spotifySvg} />
+          </a>
+          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={appleSvg} />
+          </a>
+          <a href="https://music.apple.com/us/artist/nuq/1403168719">
+            <SocialImg src={appleSvg} />
+          </a>
+        </StreamFrame>
+
       </Body>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
