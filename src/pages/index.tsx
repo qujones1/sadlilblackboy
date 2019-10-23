@@ -137,26 +137,26 @@ export default ({ data }) => (
             <SocialImg src={appleSvg} />
             <StreamText> Apple Music </StreamText>
           </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+          <Band href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
             <SocialImg src={spotifySvg} />
             <StreamText> Spotify </StreamText>
           </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+          <Band href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
             <SocialImg src={googlePng} />
             <StreamText> Google Play </StreamText>
           </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+          <Band href="https://music.amazon.com/artists/B0034XLVOO/nuq">
             <SocialImg src={amazonPng} />
             <StreamText> Amazon Music </StreamText>
           </Band>
         </StreamFrame>
         <StreamFrame>
           <PromoText> Singles </PromoText>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+          <Band href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
             <SocialImg src={appleSvg} />
             <StreamText> Apple Music </StreamText>
           </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+          <Band href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
             <SocialImg src={spotifySvg} />
             <StreamText> Spotify </StreamText>
           </Band>
@@ -164,7 +164,7 @@ export default ({ data }) => (
             <SocialImg src={googlePng} />
             <StreamText> Google Play </StreamText>
           </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
+          <Band href="https://music.amazon.com/artists/B07W6XKTHC/sadlilblackboy">
             <SocialImg src={amazonPng} />
             <StreamText> Amazon Music </StreamText>
           </Band>
