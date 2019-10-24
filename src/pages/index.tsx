@@ -8,6 +8,7 @@ const appleSvg = require("../assets/apple.svg") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
 const googlePng = require("../assets/googlePlay.png") as string;
 const amazonPng = require("../assets/amazon.png") as string;
+const soundcloudSvg = require("../assets/soundcloud2.png") as string;
 
 
 const Playlist = styled.div`
@@ -103,6 +104,7 @@ const Band = styled.a`
   font-family:  "Helvetica Neue";
   font-weight: 400;
   max-width: 100px;
+
 `;
 
 const StreamText = styled.span`
@@ -116,7 +118,9 @@ const SocialImg = styled.img`
 
 const MerchContainer = styled.div`
   display: flex;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 `;
 
 export default ({ data }) => (
@@ -132,7 +136,10 @@ export default ({ data }) => (
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
-          <PromoText> Beats </PromoText>
+          <Band href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
+            <SocialImg src={soundcloudSvg} />
+            <StreamText> Beats & Remixes </StreamText>
+          </Band>
           <Band href="https://music.apple.com/us/artist/nuq/1403168719">
             <SocialImg src={appleSvg} />
             <StreamText> Apple Music </StreamText>
@@ -151,7 +158,10 @@ export default ({ data }) => (
           </Band>
         </StreamFrame>
         <StreamFrame>
-          <PromoText> Singles </PromoText>
+          <Band href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
+            <SocialImg src={soundcloudSvg} />
+            <StreamText> Singles </StreamText>
+          </Band>
           <Band href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
             <SocialImg src={appleSvg} />
             <StreamText> Apple Music </StreamText>
@@ -214,6 +224,13 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    shirt: file(relativePath: { eq: "shirt.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 2048) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     happy: file(relativePath: { eq: "HappyEnding.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {

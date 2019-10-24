@@ -8,12 +8,12 @@ import styled from "react-emotion";
 import Helmet from "react-helmet";
 
 const appleSvg = require("../assets/apple.svg") as string;
-const instagramSvg = require("../assets/instagram.svg") as string;
-const soundcloudSvg = require("../assets/soundcloud.svg") as string;
+const instagramSvg = require("../assets/instagram2.png") as string;
+const soundcloudSvg = require("../assets/soundcloud2.png") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
-const teespringSvg = require("../assets/teespring.svg") as string;
-const twitterSvg = require("../assets/twitter.svg") as string;
-const youtubeSvg = require("../assets/youtube.svg") as string;
+const teespringSvg = require("../assets/teespring2.png") as string;
+const twitterSvg = require("../assets/twitter2.png") as string;
+const youtubeSvg = require("../assets/youtube2.png") as string;
 const bandcampSvg = require("../assets/Bandcamp.svg") as string;
 
 const Nav = styled.nav`
