@@ -121,6 +121,21 @@ const MerchContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 90%;
+
+  > div {
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+  }
+
+  > h1 {
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 20px;
+    font-family: "Helvetica Neue Condensed";
+    font-weight: normal;
+  }
 `;
 
 export default ({ data }) => (

@@ -18,6 +18,7 @@ const bandcampSvg = require("../assets/Bandcamp.svg") as string;
 
 const Nav = styled.nav`
   background-color: rgb(255, 255, 255);
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyCmexlw0odJEjv_x9yVLCBnwGFz74o9w4hyQO2QmuBoy8kSIYQw&s');
   border-bottom: 6px solid #d02120;
 `;
 
