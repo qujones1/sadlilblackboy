@@ -69,6 +69,8 @@ const StreamHeader = styled.h1`
 
 const Body = styled.div`
   background-color: white;
+  background-image: url("/assets/signMeme.png");
+  background-repeat: no-repeat, repeat;
   display: flex;
   font-family: "Helvetica Neue Condensed";
   font-weight: 400;
@@ -91,9 +93,7 @@ const PromoText = styled.span`
 `;
 
 const StreamFrame = styled.div`
-  flex: 50%;
-
-
+  flex: 33%;
 `;
 
 const Band = styled.a`

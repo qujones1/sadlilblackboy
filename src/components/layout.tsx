@@ -36,7 +36,7 @@ const NavContainer = styled.div`
 
 const LogoContainer = styled.a`
   display: flex;
-  color: black;
+  color: yellow;
   align-items: center;
   text-decoration: none;
 
