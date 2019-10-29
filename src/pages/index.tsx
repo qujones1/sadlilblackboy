@@ -69,7 +69,7 @@ const StreamHeader = styled.h1`
 
 const Body = styled.div`
   background-color: white;
-  background-image: url("/assets/signMeme.png");
+  background-image: url("");
   background-repeat: no-repeat, repeat;
   display: flex;
   font-family: "Helvetica Neue Condensed";
@@ -239,13 +239,6 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    shirt: file(relativePath: { eq: "shirt.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 2048) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
     happy: file(relativePath: { eq: "HappyEnding.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
