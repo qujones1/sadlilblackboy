@@ -102,7 +102,7 @@ const socialLinks = [
   }
 ];
 
-const THREE_DAYS_MS = 86400 * 1000 * 3;
+const THREE_DAYS_MS = 86400 * 1000 * 1;
 function getHasBeenThreeDays(dateStr: string | null) {
   if (dateStr == null) {
     return true;
@@ -170,8 +170,8 @@ export const Layout = ({ children }) => {
                   <Tippy
                     arrow={true}
                     arrowType="round"
-                    content={"New! Buy Merch!"}
-                    isVisible={isTooltipVisible}
+                    content={"New Merch Here!"}
+                    isVisible={getHasBeenThreeDays}
                     key={l.href}
                     placement="bottom"
                     theme="q"

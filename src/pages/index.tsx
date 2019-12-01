@@ -98,6 +98,9 @@ export default ({ data }) => (
         </a>
       </Body>
       <Content>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
+          <Img fluid={data.holiday.childImageSharp.fluid} />
+        </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
           <Img fluid={data.happy.childImageSharp.fluid} />
         </ImgContainer>
@@ -138,6 +141,13 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    holiday: file(relativePath: { eq: "holiday.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     happy: file(relativePath: { eq: "HappyEnding.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
