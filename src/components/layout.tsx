@@ -18,7 +18,7 @@ const bandcampSvg = require("../assets/Bandcamp.svg") as string;
 
 const Nav = styled.nav`
   background-color: rgb(255, 255, 255);
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyCmexlw0odJEjv_x9yVLCBnwGFz74o9w4hyQO2QmuBoy8kSIYQw&s');
+  background-image: url('../src/assets/banner6.jpg');
   border-bottom: 6px solid #d02120;
 `;
 
@@ -36,7 +36,7 @@ const NavContainer = styled.div`
 
 const LogoContainer = styled.a`
   display: flex;
-  color: yellow;
+  color: black;
   align-items: center;
   text-decoration: none;
 
@@ -101,12 +101,53 @@ const socialLinks = [
   }
 ];
 
-const THREE_DAYS_MS = 86400 * 1000 * 3;
+const TopNav = styled.div`
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+
+  #myLinks{
+    display: none;
+  }
+
+  a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+  }
+
+  a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  active {
+    background-color: #4CAF50
+    color: white;
+    margin-bottom: 0px;
+  }
+
+`;
+
+const THREE_DAYS_MS = 86400 * 1000 * 1;
 function getHasBeenThreeDays(dateStr: string | null) {
   if (dateStr == null) {
     return true;
   }
   return new Date().getTime() - new Date(dateStr).getTime() > THREE_DAYS_MS;
+}
+
+function menuFunction() {
+  console.log("test");
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+
+  } else {
+    x.style.display = "none";
+  }
 }
 
 export const Layout = ({ children }) => {
@@ -121,6 +162,13 @@ export const Layout = ({ children }) => {
       logo: file(relativePath: { eq: "logo.jpg" }) {
         childImageSharp {
           fixed(width: 50) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      egirl: file(relativePath: { eq: "egirl_logo.png" }) {
+        childImageSharp {
+          fixed(width: 200, height: 20) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
@@ -169,7 +217,7 @@ export const Layout = ({ children }) => {
                   <Tippy
                     arrow={true}
                     arrowType="round"
-                    content={"New! Buy Merch!"}
+                    content={"New Merch Here!"}
                     isVisible={isTooltipVisible}
                     key={l.href}
                     placement="bottom"
@@ -184,6 +232,15 @@ export const Layout = ({ children }) => {
             })}
           </SocialLinks>
         </NavContainer>
+        <TopNav>
+          <a href="javascript:void(0);" class="icon" onclick="menuFunction()">Menu</a>
+          <div id="myLinks">
+            <a>Spotify Playlists</a>
+            <a>Music Submissions</a>
+            <a>Merch</a>
+            <a>Contact</a>
+          </div>
+        </TopNav>
       </Nav>
       {children}
     </React.Fragment>
