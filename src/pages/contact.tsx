@@ -88,7 +88,7 @@ export default ({ data }) => (
     <Page>
       <h1>[contact]</h1>
       <Sub>
-      <form name="contact" method="POST" data-netlify="true" action="#Success">
+      <form name="contact" method="POST" data-netlify="true" action="success">
         <div>
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" placeholder="Rick Sanchez" required/>
