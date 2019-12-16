@@ -68,9 +68,6 @@ const StreamHeader = styled.h1`
 `;
 
 const Body = styled.div`
-  background-color: white;
-  background-image: url("");
-  background-repeat: no-repeat, repeat;
   display: flex;
   font-family: "Helvetica Neue Condensed";
   font-weight: 400;
@@ -84,36 +81,30 @@ const ImgContainer = styled.a`
   }
 `;
 
-const PromoText = styled.span`
-  font-family:  "Helvetica Neue";
-  font-weight: 400;
-  text-align: center;
-  background-color: white;
-  color: black;
-`;
-
 const StreamFrame = styled.div`
-  flex: 33%;
+  flex: 50%;
 `;
 
-const Band = styled.a`
+const Band = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  font-family:  "Helvetica Neue";
-  font-weight: 400;
-  max-width: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  border-radius: 8px;
+  padding: 5px 12px;
 
-`;
+  img {
+    width 30px;
+    padding-left: 3px;
+    padding-right: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 
-const StreamText = styled.span`
-`;
+  #beatsLine {
+    padding-right: 5px;
+  }
 
-const SocialImg = styled.img`
-  width: 50px;
-  margin: 10px auto;
-  flex-basis: 100%;
 `;
 
 const MerchContainer = styled.div`
@@ -122,14 +113,14 @@ const MerchContainer = styled.div`
   align-items: center;
   width: 90%;
 
-  > div {
+  div {
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.25);
     box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
   }
 
-  > h1 {
+  h1 {
     margin-bottom: 0;
     margin-left: 10px;
     margin-right: 20px;
@@ -151,47 +142,41 @@ export default ({ data }) => (
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
-          <Band href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
-            <SocialImg src={soundcloudSvg} />
-            <StreamText> Beats & Remixes </StreamText>
-          </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
-            <SocialImg src={appleSvg} />
-            <StreamText> Apple Music </StreamText>
-          </Band>
-          <Band href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
-            <SocialImg src={spotifySvg} />
-            <StreamText> Spotify </StreamText>
-          </Band>
-          <Band href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
-            <SocialImg src={googlePng} />
-            <StreamText> Google Play </StreamText>
-          </Band>
-          <Band href="https://music.amazon.com/artists/B0034XLVOO/nuq">
-            <SocialImg src={amazonPng} />
-            <StreamText> Amazon Music </StreamText>
+          <ImgContainer href="https://distrokid.com/hyperfollow/sadlilblackboy/white-to-a-funeral">
+            <Img class="imgBack" fluid={data.singles.childImageSharp.fluid} />
+          </ImgContainer>
+          <Band>
+            <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
+              <img src={soundcloudSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
+              <img src={appleSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
+              <img src={spotifySvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu">
+              <img src={googlePng}/>
+            </ImgContainer>
           </Band>
         </StreamFrame>
         <StreamFrame>
-          <Band href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
-            <SocialImg src={soundcloudSvg} />
-            <StreamText> Singles </StreamText>
-          </Band>
-          <Band href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
-            <SocialImg src={appleSvg} />
-            <StreamText> Apple Music </StreamText>
-          </Band>
-          <Band href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
-            <SocialImg src={spotifySvg} />
-            <StreamText> Spotify </StreamText>
-          </Band>
-          <Band href="https://music.apple.com/us/artist/nuq/1403168719">
-            <SocialImg src={googlePng} />
-            <StreamText> Google Play </StreamText>
-          </Band>
-          <Band href="https://music.amazon.com/artists/B07W6XKTHC/sadlilblackboy">
-            <SocialImg src={amazonPng} />
-            <StreamText> Amazon Music </StreamText>
+          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
+            <Img class="imgBack" fluid={data.beats.childImageSharp.fluid} />
+          </ImgContainer>
+          <Band>
+            <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
+              <img src={soundcloudSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://music.apple.com/us/artist/nuq/1403168719">
+              <img src={appleSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+              <img src={spotifySvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
+              <img src={googlePng}/>
+            </ImgContainer>
           </Band>
         </StreamFrame>
       </Body>
@@ -239,6 +224,20 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    beats: file(relativePath: { eq: "beats.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    singles: file(relativePath: { eq: "singles.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     happy: file(relativePath: { eq: "HappyEnding.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
