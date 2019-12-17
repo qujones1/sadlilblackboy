@@ -79,10 +79,15 @@ const ImgContainer = styled.a`
   @media (max-width: 800px) {
     flex-basis: 33%;
   }
+
+  Singles {
+      border-right: 5px solid red;
+  }
 `;
 
 const StreamFrame = styled.div`
   flex: 50%;
+
 `;
 
 const Band = styled.div`
@@ -101,9 +106,6 @@ const Band = styled.div`
     padding-bottom: 10px;
   }
 
-  #beatsLine {
-    padding-right: 5px;
-  }
 
 `;
 
@@ -142,7 +144,7 @@ export default ({ data }) => (
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/sadlilblackboy/white-to-a-funeral">
+          <ImgContainer  href="https://distrokid.com/hyperfollow/sadlilblackboy/white-to-a-funeral">
             <Img class="imgBack" fluid={data.singles.childImageSharp.fluid} />
           </ImgContainer>
           <Band>
