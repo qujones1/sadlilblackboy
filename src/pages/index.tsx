@@ -80,13 +80,12 @@ const ImgContainer = styled.a`
     flex-basis: 33%;
   }
 
-  Singles {
-      border-right: 5px solid red;
-  }
+
 `;
 
 const StreamFrame = styled.div`
   flex: 50%;
+  position: relative;
 
 `;
 
@@ -94,9 +93,20 @@ const Band = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: black;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
   border-radius: 8px;
   padding: 5px 12px;
+  position: absolute;
+  z-index: 3;
+  bottom: 8px;
+  left: 150px;
+
+  @media (max-width: 800px) {
+    bottom: 6px;
+    left: 25px;
+  }
+
 
   img {
     width 30px;
@@ -144,9 +154,7 @@ export default ({ data }) => (
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
-          <ImgContainer  href="https://distrokid.com/hyperfollow/sadlilblackboy/white-to-a-funeral">
-            <Img class="imgBack" fluid={data.singles.childImageSharp.fluid} />
-          </ImgContainer>
+          <Img class="imgBack" fluid={data.singles.childImageSharp.fluid} />
           <Band>
             <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
               <img src={soundcloudSvg}/>
@@ -163,9 +171,7 @@ export default ({ data }) => (
           </Band>
         </StreamFrame>
         <StreamFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
-            <Img class="imgBack" fluid={data.beats.childImageSharp.fluid} />
-          </ImgContainer>
+          <Img class="imgBack" fluid={data.beats.childImageSharp.fluid} />
           <Band>
             <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
               <img src={soundcloudSvg}/>

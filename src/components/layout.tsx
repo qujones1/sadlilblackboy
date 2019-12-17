@@ -102,12 +102,12 @@ const socialLinks = [
 ];
 
 const TopNav = styled.div`
-  overflow: hidden;
+  overflow: visible;
   background-color: #333;
   position: relative;
 
   #myLinks{
-    display: none;
+    display: block;
   }
 
   a {
@@ -140,7 +140,6 @@ function getHasBeenThreeDays(dateStr: string | null) {
 }
 
 function menuFunction() {
-  console.log("test");
   var x = document.getElementById("myLinks");
   if (x.style.display === "none") {
     x.style.display = "block";
@@ -233,12 +232,11 @@ export const Layout = ({ children }) => {
           </SocialLinks>
         </NavContainer>
         <TopNav>
-          <a href="javascript:void(0);" class="icon" onclick="menuFunction()">Menu</a>
           <div id="myLinks">
-            <a>Spotify Playlists</a>
-            <a>Music Submissions</a>
-            <a>Merch</a>
-            <a>Contact</a>
+            <a href="success">Success Page Test</a>
+            <a href="submit">Music Submissions</a>
+            <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
+            <a href="contact">Contact</a>
           </div>
         </TopNav>
       </Nav>
