@@ -100,11 +100,13 @@ const Band = styled.div`
   position: absolute;
   z-index: 3;
   bottom: 8px;
-  left: 150px;
+  left: 155px;
 
   @media (max-width: 800px) {
-    bottom: 6px;
-    left: 25px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,1);
+    padding: 0px 5px;
+    bottom: 4px;
+    left: 8px;
   }
 
 
