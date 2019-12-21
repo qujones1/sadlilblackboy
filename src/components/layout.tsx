@@ -76,6 +76,7 @@ const SocialLinks = styled.div`
 const TopNav = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 8px;
 
   a + a {
@@ -218,8 +219,7 @@ export const Layout = ({ children }) => {
         </NavContainer>
         <TopNav>
           <a href="/">Home</a>
-          <a href="/success">Success Page Test</a>
-          <a href="/submit">Music Submissions</a>
+          <a href="/submit">Submissions</a>
           <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
           <a href="/contact">Contact</a>
         </TopNav>
