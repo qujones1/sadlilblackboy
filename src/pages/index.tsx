@@ -51,8 +51,8 @@ const Header = styled.h1`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 12px;
 `;
 
 const StreamHeader = styled.h1`
@@ -64,7 +64,9 @@ const StreamHeader = styled.h1`
   text-align: center;
   color: black;
   background-color: white;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  padding-top: 4px;
+  padding-bottom: 12px;
 `;
 
 const Body = styled.div`
