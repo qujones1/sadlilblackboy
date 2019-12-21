@@ -73,6 +73,21 @@ const SocialLinks = styled.div`
   }
 `;
 
+const TopNav = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+
+  a + a {
+    border-left: 2px solid black;
+  }
+
+  a {
+    padding: 0 4px;
+    text-decoration: none;
+  }
+`;
+
 const socialLinks = [
 
   {
@@ -100,36 +115,6 @@ const socialLinks = [
     href: "https://www.youtube.com/c/sadlilblackboy?sub_confirmation=1"
   }
 ];
-
-const TopNav = styled.div`
-  overflow: visible;
-  background-color: #333;
-  position: relative;
-
-  #myLinks{
-    display: block;
-  }
-
-  a {
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 15px;
-    display: block;
-  }
-
-  a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  active {
-    background-color: #4CAF50
-    color: white;
-    margin-bottom: 0px;
-  }
-
-`;
 
 const THREE_DAYS_MS = 86400 * 1000 * 1;
 function getHasBeenThreeDays(dateStr: string | null) {
@@ -232,12 +217,11 @@ export const Layout = ({ children }) => {
           </SocialLinks>
         </NavContainer>
         <TopNav>
-          <div id="myLinks">
-            <a href="success">Success Page Test</a>
-            <a href="submit">Music Submissions</a>
-            <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
-            <a href="contact">Contact</a>
-          </div>
+          <a href="/">Home</a>
+          <a href="/success">Success Page Test</a>
+          <a href="/submit">Music Submissions</a>
+          <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
+          <a href="/contact">Contact</a>
         </TopNav>
       </Nav>
       {children}
