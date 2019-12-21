@@ -211,12 +211,12 @@ export const Layout = ({ children }) => {
                 </a>
               );
 
-              if (i === 4) {
+              if (i === 3) {
                 return (
                   <Tippy
                     arrow={true}
                     arrowType="round"
-                    content={"New Merch Here!"}
+                    content="New Merch Here!"
                     isVisible={isTooltipVisible}
                     key={l.href}
                     placement="bottom"
