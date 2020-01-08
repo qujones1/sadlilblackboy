@@ -236,7 +236,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    beats: file(relativePath: { eq: "beats.png" }) {
+    beats: file(relativePath: { eq: "beatsart.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG

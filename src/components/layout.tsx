@@ -219,6 +219,7 @@ export const Layout = ({ children }) => {
         </NavContainer>
         <TopNav>
           <a href="/">Home</a>
+          <a href="/playlists">Playlists</a>
           <a href="/submit">Submissions</a>
           <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
           <a href="/contact">Contact</a>
