@@ -97,12 +97,19 @@ const Playlist = styled.a`
   Img {
     margin-top: 8px;
     vertical-align: middle;
+    transition: transform .2s;
   }
   a {
     text-align: center;
     text-decoration: none;
     font-size: 20px;
     margin-bottom: 7px;
+
+  }
+
+
+  Img:hover {
+    transform: scale(1.2);
   }
 
   a:link {
@@ -116,19 +123,19 @@ export default ({ data }) => (
     <Page>
       <h1>[spotify playlists]</h1>
       <Body>
-        <Playlist href="spotify.com" >
+        <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw" >
             <Img fluid={data.beats.childImageSharp.fluid} />
             <a>Lofi Brokenhearts💔</a>
         </Playlist>
-        <Playlist>
+        <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/5aCocgqPZe6HzPpmFZ0xnh?si=wrrxPvRiTwabudKYSPGJ5Q">
           <Img fluid={data.beats.childImageSharp.fluid} />
           <a>Sadboy Vibe Check🖤</a>
         </Playlist>
-        <Playlist>
+        <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/0TAWgrvtM2CbEA1i5LJKzn?si=gn06T5nxQF2GcNTdf4x15Q">
           <Img fluid={data.beats.childImageSharp.fluid} />
           <a>Lofi Indie Pop & Rap</a>
         </Playlist>
-        <Playlist>
+        <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA">
           <Img fluid={data.beats.childImageSharp.fluid} />
           <a>Luv-Fi</a>
         </Playlist>
