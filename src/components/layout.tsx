@@ -117,7 +117,7 @@ const socialLinks = [
   }
 ];
 
-const THREE_DAYS_MS = 86400 * 1000 * 1;
+const THREE_DAYS_MS = 86400 * 1000 * 3;
 function getHasBeenThreeDays(dateStr: string | null) {
   if (dateStr == null) {
     return true;
@@ -220,8 +220,8 @@ export const Layout = ({ children }) => {
         <TopNav>
           <a href="/">Home</a>
           <a href="/playlists">Playlists</a>
-          <a href="/submit">Submissions</a>
           <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
+          <a href="/submit">Submissions</a>
           <a href="/contact">Contact</a>
         </TopNav>
       </Nav>
