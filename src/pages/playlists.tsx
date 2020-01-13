@@ -24,61 +24,6 @@ const Page = styled.div`
 
 `;
 
-const Sub = styled.div `
-  display: flex;
-
-
-  p {
-    margin-top: 2px;
-    margin-bottom: 25px;
-  }
-
-  h1 {
-    margin-bottom: 5px
-  }
-
-  input {
-    width: 90%;
-    height: 35px;
-  }
-
-  button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 6px;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  a:link {
-    text-decoration: none;
-    color: red;
-  }
-
-  form input[required=required]:after,
-  form select[required=required]:after,
-  form textarea[required=required]:after
-  {
-      color: red;
-      content: " *";
-  }
-
-  label {
-    display: block;
-    padding: 5px;
-    margin-bottom: 1px;
-  }
-
-  textarea{
-    margin-bottom: 15px;
-  }
-`;
-
 const Body = styled.div`
   display: flex;
   flex-wrap: wrap;
