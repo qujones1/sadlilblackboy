@@ -6,6 +6,10 @@ import { Layout } from "../components/layout";
 
 const appleSvg = require("../assets/apple.svg") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
+const googlePng = require("../assets/googlePlay.png") as string;
+const amazonPng = require("../assets/amazon.png") as string;
+const soundcloudSvg = require("../assets/soundcloud2.png") as string;
+
 
 const Playlist = styled.div`
   width: 100%;
@@ -47,20 +51,29 @@ const Header = styled.h1`
   font-weight: 400;
   text-align: center;
   color: white;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+`;
+
+const StreamHeader = styled.h1`
+  display: flex;
+  font-family: "Helvetica Neue Condensed";
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  background-color: white;
+  margin-bottom: 0;
+  padding-top: 4px;
+  padding-bottom: 12px;
 `;
 
 const Body = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "edosz";
+  font-family: "Helvetica Neue Condensed";
   font-weight: 400;
-  text-align: center;
   color: white;
-  margin: 10px auto;
-  width: 75%;
 `;
 
 const ImgContainer = styled.a`
@@ -68,14 +81,68 @@ const ImgContainer = styled.a`
   @media (max-width: 800px) {
     flex-basis: 33%;
   }
+
+
 `;
 
-const PromoText = styled.span`
-  margin: 0 8px;
+const StreamFrame = styled.div`
+  flex: 50%;
+  position: relative;
+
 `;
 
-const SocialImg = styled.img`
-  width: 35px;
+const Band = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  border-radius: 8px;
+  padding: 5px 12px;
+  position: absolute;
+  z-index: 3;
+  bottom: 8px;
+  left: 155px;
+
+  @media (max-width: 800px) {
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,1);
+    padding: 0px 5px;
+    bottom: 4px;
+    left: 8px;
+  }
+
+
+  img {
+    width 30px;
+    padding-left: 3px;
+    padding-right: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+
+`;
+
+const MerchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+
+  div {
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 20px;
+    font-family: "Helvetica Neue Condensed";
+    font-weight: normal;
+  }
 `;
 
 export default ({ data }) => (
@@ -88,18 +155,49 @@ export default ({ data }) => (
           src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
         />
       </Playlist>
+      <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
-        <a href="https://music.apple.com/us/artist/nuq/1403168719">
-          <SocialImg src={appleSvg} />
-        </a>
-        <PromoText>Stream Beats Below</PromoText>
-        <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
-          <SocialImg src={spotifySvg} />
-        </a>
+        <StreamFrame>
+          <Img class="imgBack" fluid={data.singles.childImageSharp.fluid} />
+          <Band>
+            <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
+              <img src={soundcloudSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
+              <img src={appleSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
+              <img src={spotifySvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu">
+              <img src={googlePng}/>
+            </ImgContainer>
+          </Band>
+        </StreamFrame>
+        <StreamFrame>
+          <Img class="imgBack" fluid={data.beats.childImageSharp.fluid} />
+          <Band>
+            <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
+              <img src={soundcloudSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://music.apple.com/us/artist/nuq/1403168719">
+              <img src={appleSvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
+              <img src={spotifySvg}/>
+            </ImgContainer>
+            <ImgContainer href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
+              <img src={googlePng}/>
+            </ImgContainer>
+          </Band>
+        </StreamFrame>
       </Body>
+      <MerchContainer>
+
+      </MerchContainer>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
-          <Img fluid={data.holiday.childImageSharp.fluid} />
+         <Img fluid={data.holiday.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
           <Img fluid={data.happy.childImageSharp.fluid} />
@@ -141,6 +239,20 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    beats: file(relativePath: { eq: "beatsart.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    singles: file(relativePath: { eq: "singleart.PNG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     holiday: file(relativePath: { eq: "holiday.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
