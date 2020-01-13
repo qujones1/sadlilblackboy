@@ -86,7 +86,7 @@ export default ({ data }) => (
         <p>
           Fill in the form below if you are looking for a chance to be added to one of our spotify playlists.
         </p>
-        <form name="contact" method="POST" data-netlify="true" action="success">
+        <form name="submissions" method="POST" data-netlify="true" action="success">
           <div>
             <label for="track">Spotify url:</label>
             <input type="text" id="track" name="trackurl" placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu" required/>
