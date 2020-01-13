@@ -31,7 +31,6 @@ const Body = styled.div`
   font-family: "Helvetica Neue Condensed";
   font-weight: 400;
   color: white;
-
 `;
 
 const Playlist = styled.a`
