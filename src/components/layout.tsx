@@ -117,7 +117,7 @@ const socialLinks = [
   }
 ];
 
-const THREE_DAYS_MS = 86400 * 1000 * 3;
+const THREE_DAYS_MS = 86400 * 1000 * 1;
 function getHasBeenThreeDays(dateStr: string | null) {
   if (dateStr == null) {
     return true;
