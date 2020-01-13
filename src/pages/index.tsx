@@ -246,7 +246,7 @@ export const query = graphql`
         }
       }
     }
-    singles: file(relativePath: { eq: "singles.png" }) {
+    singles: file(relativePath: { eq: "singleart.PNG" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
