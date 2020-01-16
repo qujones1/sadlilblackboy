@@ -59,6 +59,10 @@ const Sub = styled.div `
     margin-bottom: 10px;
   }
 
+  input {
+    margin-top: 5px;
+  }
+
   a:link {
     text-decoration: none;
     color: red;
@@ -88,24 +92,22 @@ export default ({ data }) => (
     <Page>
       <h1>[contact]</h1>
       <Sub>
-      <form name="contact" method="POST" data-netlify="true" action="success">
+      <form name="contact" method="POST" data-netlify="true" action="/success">
         <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" placeholder="Rick Sanchez" required/>
+          <label>Name:<br></br><input type="text" name="name" placeholder="Rick Sanchez" required/></label>
           <p>
 
           </p>
         </div>
         <div>
-          <label for="email" >Email:</label>
-          <input type="text" id="email" name="email" placeholder="name@domain.com" />
+          <label>Email:<br></br><input type="text" name="email" placeholder="name@domain.com" /></label>
           <p>
 
           </p>
         </div>
         <div>
-          <label for="message" >Message:</label>
-          <textarea name="message" placeholder="Tell me how you feel . . ." required style={{width: '80%', height: '100px'}}/>
+          <label>Message:<br></br><textarea name="message" placeholder="Tell me how you feel . . ." required style={{width: '80%', height: '100px'}}/></label>
+
         </div>
         <button type="submit">Send</button>
       </form>

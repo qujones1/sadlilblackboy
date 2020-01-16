@@ -35,6 +35,7 @@ const Sub = styled.div `
   p {
     margin-top: 2px;
     margin-bottom: 25px;
+    margin-left: 5px;
   }
 
   h1 {
@@ -42,6 +43,7 @@ const Sub = styled.div `
   }
 
   input {
+    margin-top: 5px;
     width: 90%;
     height: 35px;
   }
@@ -86,17 +88,15 @@ export default ({ data }) => (
         <p>
           Fill in the form below if you are looking for a chance to be added to one of our spotify playlists.
         </p>
-        <form name="contact" method="POST" data-netlify="true" action="success">
+        <form name="submissions" method="POST" data-netlify="true" action="/success">
           <div>
-            <label for="track">Spotify url:</label>
-            <input type="text" id="track" name="trackurl" placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu" required/>
+            <label>Spotify url:<br></br><input type="text" name="trackurl" placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu" required/></label>
             <p>
-              a link to one of your songs that you think will fit any of our playlists.
+              Provide a link to one of your songs that you think will fit any of our playlists.
             </p>
           </div>
           <div>
-            <label for="email" >Email:</label>
-            <input type="text" id="email" name="email" placeholder="name@domain.com" />
+            <label>Email:<br></br><input type="text" name="email" placeholder="name@domain.com" /></label>
             <p>
               Provide your email so that we could reach out to you.
             </p>
