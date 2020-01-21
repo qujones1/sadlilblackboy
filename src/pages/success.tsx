@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
 
 const appleSvg = require("../assets/apple.svg") as string;
@@ -21,16 +21,14 @@ const Page = styled.div`
   @media (max-width: 400px) {
     flex-wrap: wrap;
   }
-
 `;
 
-const Sub = styled.div `
+const Sub = styled.div`
   display: inline-block;
   box-sizing: border-box;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
   border-radius: 8px;
   padding: 4px 16px;
-
 
   p {
     margin-top: 2px;
@@ -38,7 +36,7 @@ const Sub = styled.div `
   }
 
   h1 {
-    margin-bottom: 5px
+    margin-bottom: 5px;
   }
 `;
 
@@ -54,14 +52,11 @@ export default ({ data }) => (
     <Page>
       <h1>[success]</h1>
       <Sub>
-        <p>
-          Thank You! An email has been sent.
-        </p>
+        <p>Thank You! An email has been sent.</p>
         <ImgContainer>
           <Img fluid={data.dab.childImageSharp.fluid} />
         </ImgContainer>
       </Sub>
-
     </Page>
   </Layout>
 );
@@ -76,4 +71,4 @@ export const query = graphql`
       }
     }
   }
-  `;
+`;

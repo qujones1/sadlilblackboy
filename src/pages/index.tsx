@@ -1,15 +1,13 @@
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
 
 const appleSvg = require("../assets/apple.svg") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
 const googlePng = require("../assets/googlePlay.png") as string;
-const amazonPng = require("../assets/amazon.png") as string;
 const soundcloudSvg = require("../assets/soundcloud2.png") as string;
-
 
 const Playlist = styled.div`
   width: 100%;
@@ -28,7 +26,7 @@ const Playlist = styled.div`
   }
 
   @media (max-width: 800px) {
-    //display: none;
+    display: none;
   }
 `;
 
@@ -81,14 +79,11 @@ const ImgContainer = styled.a`
   @media (max-width: 800px) {
     flex-basis: 33%;
   }
-
-
 `;
 
 const StreamFrame = styled.div`
   flex: 50%;
   position: relative;
-
 `;
 
 const Band = styled.div`
@@ -111,7 +106,6 @@ const Band = styled.div`
     left: 8px;
   }
 
-
   img {
     width 30px;
     padding-left: 3px;
@@ -119,8 +113,6 @@ const Band = styled.div`
     padding-top: 10px;
     padding-bottom: 10px;
   }
-
-
 `;
 
 const MerchContainer = styled.div`
@@ -158,46 +150,44 @@ export default ({ data }) => (
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
-          <Img class="imgBack" fluid={data.singles.childImageSharp.fluid} />
+          <Img className="imgBack" fluid={data.singles.childImageSharp.fluid} />
           <Band>
             <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
-              <img src={soundcloudSvg}/>
+              <img src={soundcloudSvg} />
             </ImgContainer>
             <ImgContainer href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
-              <img src={appleSvg}/>
+              <img src={appleSvg} />
             </ImgContainer>
             <ImgContainer href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
-              <img src={spotifySvg}/>
+              <img src={spotifySvg} />
             </ImgContainer>
             <ImgContainer href="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu">
-              <img src={googlePng}/>
+              <img src={googlePng} />
             </ImgContainer>
           </Band>
         </StreamFrame>
         <StreamFrame>
-          <Img class="imgBack" fluid={data.beats.childImageSharp.fluid} />
+          <Img className="imgBack" fluid={data.beats.childImageSharp.fluid} />
           <Band>
             <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
-              <img src={soundcloudSvg}/>
+              <img src={soundcloudSvg} />
             </ImgContainer>
             <ImgContainer href="https://music.apple.com/us/artist/nuq/1403168719">
-              <img src={appleSvg}/>
+              <img src={appleSvg} />
             </ImgContainer>
             <ImgContainer href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
-              <img src={spotifySvg}/>
+              <img src={spotifySvg} />
             </ImgContainer>
             <ImgContainer href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
-              <img src={googlePng}/>
+              <img src={googlePng} />
             </ImgContainer>
           </Band>
         </StreamFrame>
       </Body>
-      <MerchContainer>
-
-      </MerchContainer>
+      <MerchContainer></MerchContainer>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
-         <Img fluid={data.holiday.childImageSharp.fluid} />
+          <Img fluid={data.holiday.childImageSharp.fluid} />
         </ImgContainer>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
           <Img fluid={data.happy.childImageSharp.fluid} />

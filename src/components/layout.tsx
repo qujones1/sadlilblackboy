@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import React, { useEffect, useState } from "react";
 import Tippy from "@tippy.js/react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import Helmet from "react-helmet";
 
 const appleSvg = require("../assets/apple.svg") as string;
@@ -18,7 +18,7 @@ const bandcampSvg = require("../assets/Bandcamp.svg") as string;
 
 const Nav = styled.nav`
   background-color: rgb(255, 255, 255);
-  background-image: url('../src/assets/banner6.jpg');
+  background-image: url("../src/assets/banner6.jpg");
   border-bottom: 6px solid #d02120;
 `;
 
@@ -90,7 +90,6 @@ const TopNav = styled.div`
 `;
 
 const socialLinks = [
-
   {
     logo: instagramSvg,
     href: "https://www.instagram.com/sadlilblackboy/"
@@ -129,7 +128,6 @@ function menuFunction() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "none") {
     x.style.display = "block";
-
   } else {
     x.style.display = "none";
   }

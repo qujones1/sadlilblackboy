@@ -1,14 +1,8 @@
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
-
-const appleSvg = require("../assets/apple.svg") as string;
-const spotifySvg = require("../assets/spotify.svg") as string;
-const googlePng = require("../assets/googlePlay.png") as string;
-const amazonPng = require("../assets/amazon.png") as string;
-const soundcloudSvg = require("../assets/soundcloud2.png") as string;
 
 const Page = styled.div`
   display: flex;
@@ -21,7 +15,6 @@ const Page = styled.div`
   @media (max-width: 400px) {
     flex-wrap: wrap;
   }
-
 `;
 
 const Body = styled.div`
@@ -39,28 +32,26 @@ const Playlist = styled.a`
   text-decoration: none;
   color: white;
 
-  Img {
+  img {
     margin-top: 8px;
     vertical-align: middle;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
+
   a {
     text-align: center;
     text-decoration: none;
     font-size: 20px;
     margin-bottom: 7px;
-
   }
 
-
-  Img:hover {
+  img:hover {
     transform: scale(1.2);
   }
 
   a:link {
     text-decoration: none;
   }
-
 `;
 
 export default ({ data }) => (
@@ -76,9 +67,9 @@ export default ({ data }) => (
           <Img fluid={data.vibe.childImageSharp.fluid} />
           <a>Sadboy Vibe Check🖤</a>
         </Playlist>
-        <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw" >
-            <Img fluid={data.brkn.childImageSharp.fluid} />
-            <a>Lofi Brokenhearts💔</a>
+        <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw">
+          <Img fluid={data.brkn.childImageSharp.fluid} />
+          <a>Lofi Brokenhearts💔</a>
         </Playlist>
         <Playlist href="https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA">
           <Img fluid={data.luvfi.childImageSharp.fluid} />

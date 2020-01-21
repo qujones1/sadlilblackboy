@@ -1,14 +1,6 @@
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
-
-const appleSvg = require("../assets/apple.svg") as string;
-const spotifySvg = require("../assets/spotify.svg") as string;
-const googlePng = require("../assets/googlePlay.png") as string;
-const amazonPng = require("../assets/amazon.png") as string;
-const soundcloudSvg = require("../assets/soundcloud2.png") as string;
 
 const Page = styled.div`
   display: flex;
@@ -21,16 +13,14 @@ const Page = styled.div`
   @media (max-width: 400px) {
     flex-wrap: wrap;
   }
-
 `;
 
-const Sub = styled.div `
+const Sub = styled.div`
   display: inline-block;
   box-sizing: border-box;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
   border-radius: 8px;
   padding: 4px 16px;
-
 
   p {
     margin-top: 2px;
@@ -38,7 +28,7 @@ const Sub = styled.div `
   }
 
   h1 {
-    margin-bottom: 5px
+    margin-bottom: 5px;
   }
 
   input {
@@ -47,7 +37,7 @@ const Sub = styled.div `
   }
 
   button {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -68,12 +58,11 @@ const Sub = styled.div `
     color: red;
   }
 
-  form input[required=required]:after,
-  form select[required=required]:after,
-  form textarea[required=required]:after
-  {
-      color: red;
-      content: " *";
+  form input[required="required"]:after,
+  form select[required="required"]:after,
+  form textarea[required="required"]:after {
+    color: red;
+    content: " *";
   }
 
   label {
@@ -82,7 +71,7 @@ const Sub = styled.div `
     margin-bottom: 1px;
   }
 
-  textarea{
+  textarea {
     margin-bottom: 15px;
   }
 `;
@@ -92,25 +81,44 @@ export default ({ data }) => (
     <Page>
       <h1>[contact]</h1>
       <Sub>
-      <form name="contact" method="POST" data-netlify="true" action="/success">
-        <div>
-          <label>Name:<br></br><input type="text" name="name" placeholder="Rick Sanchez" required/></label>
-          <p>
-
-          </p>
-        </div>
-        <div>
-          <label>Email:<br></br><input type="text" name="email" placeholder="name@domain.com" /></label>
-          <p>
-
-          </p>
-        </div>
-        <div>
-          <label>Message:<br></br><textarea name="message" placeholder="Tell me how you feel . . ." required style={{width: '80%', height: '100px'}}/></label>
-
-        </div>
-        <button type="submit">Send</button>
-      </form>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success"
+        >
+          <div>
+            <label>
+              Name:<br></br>
+              <input
+                type="text"
+                name="name"
+                placeholder="Rick Sanchez"
+                required
+              />
+            </label>
+            <p></p>
+          </div>
+          <div>
+            <label>
+              Email:<br></br>
+              <input type="text" name="email" placeholder="name@domain.com" />
+            </label>
+            <p></p>
+          </div>
+          <div>
+            <label>
+              Message:<br></br>
+              <textarea
+                name="message"
+                placeholder="Tell me how you feel . . ."
+                required
+                style={{ width: "80%", height: "100px" }}
+              />
+            </label>
+          </div>
+          <button type="submit">Send</button>
+        </form>
       </Sub>
     </Page>
   </Layout>
