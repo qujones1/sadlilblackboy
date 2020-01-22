@@ -26,7 +26,6 @@ const Playlist = styled.div`
   }
 
   @media (max-width: 800px) {
-    display: none;
   }
 `;
 
@@ -50,7 +49,7 @@ const Header = styled.h1`
   text-align: center;
   color: white;
   margin-top: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 `;
 
 const StreamHeader = styled.h1`
