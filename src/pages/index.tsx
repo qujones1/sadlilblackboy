@@ -4,7 +4,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
 
-const appleSvg = require("../assets/apple.svg") as string;
+const appleSvg = require("../assets/AppleSquare.png") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
 const googlePng = require("../assets/googlePlay.png") as string;
 const soundcloudSvg = require("../assets/soundcloud2.png") as string;
