@@ -15,6 +15,7 @@ const teespringSvg = require("../assets/teespring2.png") as string;
 const twitterSvg = require("../assets/twitter2.png") as string;
 const youtubeSvg = require("../assets/youtube2.png") as string;
 const bandcampSvg = require("../assets/Bandcamp.svg") as string;
+const tiktokSvg = require("../assets/tiktok.png") as string;
 
 const Nav = styled.nav`
   background-color: rgb(255, 255, 255);
@@ -105,6 +106,10 @@ const socialLinks = [
   {
     logo: teespringSvg,
     href: "https://teespring.com/stores/sadlilblackboy"
+  },
+  {
+    logo: tiktokSvg,
+    href: "https://vm.tiktok.com/7xopMR/"
   },
   {
     logo: twitterSvg,

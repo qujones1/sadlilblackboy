@@ -114,6 +114,11 @@ const Band = styled.div`
   }
 `;
 
+const ReleaseFrame = styled.div`
+  flex: 50%;
+  position: relative;
+`;
+
 const MerchContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -183,6 +188,18 @@ export default ({ data }) => (
           </Band>
         </StreamFrame>
       </Body>
+      <Body>
+        <ReleaseFrame>
+          <ImgContainer href="https://distrokid.com/hyperfollow/sadlilblackboy/im-not-okay">
+            <Img fluid={data.singleRelease.childImageSharp.fluid} />
+          </ImgContainer>
+        </ReleaseFrame>
+        <ReleaseFrame>
+          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/float-away">
+            <Img fluid={data.beatRelease.childImageSharp.fluid} />
+          </ImgContainer>
+        </ReleaseFrame>
+      </Body>
       <MerchContainer></MerchContainer>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
@@ -228,6 +245,21 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    beatRelease: file(relativePath: { eq: "beats1.PNG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    singleRelease: file(relativePath: { eq: "single1.JPG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+
     beats: file(relativePath: { eq: "beatsart.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
