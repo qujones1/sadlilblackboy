@@ -21,7 +21,6 @@ module.exports = {
         trackingIds: ["UA-79031036-3"],
         pluginConfig: {}
       }
-    },
-    "gatsby-plugin-remove-serviceworker"
+    }
   ]
 };
