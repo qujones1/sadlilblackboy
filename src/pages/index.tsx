@@ -119,6 +119,20 @@ const ReleaseFrame = styled.div`
   position: relative;
 `;
 
+const ReleaseHeader = styled.h1`
+  display: flex;
+  font-family: "Helvetica Neue Condensed";
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  background-color: white;
+  margin-bottom: 0;
+  padding-top: 4px;
+  padding-bottom: 12px;
+`;
+
 const MerchContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -195,7 +209,7 @@ export default ({ data }) => (
           </ImgContainer>
         </ReleaseFrame>
         <ReleaseFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/float-away">
+          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/golden-feat-r0bis">
             <Img fluid={data.beatRelease.childImageSharp.fluid} />
           </ImgContainer>
         </ReleaseFrame>
@@ -245,7 +259,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    beatRelease: file(relativePath: { eq: "beats1.PNG" }) {
+    beatRelease: file(relativePath: { eq: "golden.PNG" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
