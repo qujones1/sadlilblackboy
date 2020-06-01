@@ -162,7 +162,7 @@ export default ({ data }) => (
       <Playlist>
         <iframe
           allow="autoplay"
-          src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
+          src="https://www.youtube.com/embed/videoseries?list=PL8vjFV9ndmZuBfln4WFo8ZH_lhdCOP9us"
         />
       </Playlist>
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
@@ -209,7 +209,7 @@ export default ({ data }) => (
           </ImgContainer>
         </ReleaseFrame>
         <ReleaseFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/madly-feat-mykey">
+          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/pink-clouds">
             <Img fluid={data.beatRelease.childImageSharp.fluid} />
           </ImgContainer>
         </ReleaseFrame>
@@ -259,7 +259,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    beatRelease: file(relativePath: { eq: "madly.PNG" }) {
+    beatRelease: file(relativePath: { eq: "PinkClouds.PNG" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
