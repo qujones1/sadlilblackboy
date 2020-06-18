@@ -204,7 +204,7 @@ export default ({ data }) => (
       </Body>
       <Body>
         <ReleaseFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/sadlilblackboy/im-not-okay">
+          <ImgContainer href="https://distrokid.com/hyperfollow/sadlilblackboy/carnival">
             <Img fluid={data.singleRelease.childImageSharp.fluid} />
           </ImgContainer>
         </ReleaseFrame>
@@ -266,7 +266,7 @@ export const query = graphql`
         }
       }
     }
-    singleRelease: file(relativePath: { eq: "single1.JPG" }) {
+    singleRelease: file(relativePath: { eq: "CarnivalCover.PNG" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
