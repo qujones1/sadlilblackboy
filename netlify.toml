@@ -1,0 +1,6 @@
+# A basic redirect rule
+[[redirects]]
+  from = "/carnival"
+  to = "https://distrokid.com/hyperfollow/sadlilblackboy/carnival"
+  status = 301
+  force = false
