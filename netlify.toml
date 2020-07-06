@@ -4,3 +4,15 @@
   to = "https://distrokid.com/hyperfollow/sadlilblackboy/carnival"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/merch"
+  to = "https://teespring.com/stores/sadlilblackboy"
+  status = 301
+  force = false
+  
+[[redirects]]
+  from = "/beats"
+  to = "https://www.beatstars.com/sadlilblackboy/"
+  status = 301
+  force = false
