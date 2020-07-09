@@ -1,4 +1,4 @@
-# A basic redirect rule
+# basic redirect rules
 [[redirects]]
   from = "/carnival"
   to = "https://distrokid.com/hyperfollow/sadlilblackboy/carnival"
@@ -14,5 +14,11 @@
 [[redirects]]
   from = "/beats"
   to = "https://www.beatstars.com/sadlilblackboy/"
+  status = 301
+  force = false
+  
+[[redirects]]
+  from = "/want-it-all"
+  to = "https://distrokid.com/hyperfollow/nuq/want-it-all"
   status = 301
   force = false
