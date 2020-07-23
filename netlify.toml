@@ -22,3 +22,10 @@
   to = "https://distrokid.com/hyperfollow/nuq/want-it-all"
   status = 301
   force = false
+  
+[[redirects]]
+  from = "/lonely-beach"
+  to = "https://distrokid.com/hyperfollow/nuq/lonely-beach"
+  status = 301
+  force = false
+
