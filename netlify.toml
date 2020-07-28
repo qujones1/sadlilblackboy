@@ -28,4 +28,10 @@
   to = "https://distrokid.com/hyperfollow/nuq/lonely-beach"
   status = 301
   force = false
+  
+ [[redirects]]
+  from = "/kaleidoscope"
+  to = "https://distrokid.com/hyperfollow/sadlilblackboy/kaleidoscope-feat-nuq"
+  status = 301
+  force = false
 
