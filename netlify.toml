@@ -34,4 +34,10 @@
   to = "https://distrokid.com/hyperfollow/sadlilblackboy/kaleidoscope-feat-nuq"
   status = 301
   force = false
+  
+ [[redirects]]
+  from = "/are-we-fine"
+  to = "https://distrokid.com/hyperfollow/sadlilblackboy/are-we-fine"
+  status = 301
+  force = false
 
