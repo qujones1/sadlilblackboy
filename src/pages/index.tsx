@@ -209,7 +209,7 @@ export default ({ data }) => (
           </ImgContainer>
         </ReleaseFrame>
         <ReleaseFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/heather">
+          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/so-long">
             <Img fluid={data.beatRelease.childImageSharp.fluid} />
           </ImgContainer>
         </ReleaseFrame>
@@ -259,7 +259,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    beatRelease: file(relativePath: { eq: "heather.jpg" }) {
+    beatRelease: file(relativePath: { eq: "soLong.PNG" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
