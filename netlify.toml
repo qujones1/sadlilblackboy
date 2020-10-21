@@ -41,3 +41,8 @@
   status = 301
   force = false
 
+ [[redirects]]
+  from = "/counting-the-days"
+  to = "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days"
+  status = 301
+  force = false
