@@ -21,12 +21,6 @@ module.exports = {
         trackingIds: ["UA-79031036-3"],
         pluginConfig: {}
       }
-    },
-    {
-    resolve: `gatsby-plugin-facebook-pixel`,
-    options: {
-      pixelId: "785646585394990",
-    },
-  }
+    }
   ]
 };

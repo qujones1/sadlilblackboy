@@ -6522,11 +6522,6 @@ gatsby-plugin-emotion@^4.1.21:
     "@babel/runtime" "^7.11.2"
     "@emotion/babel-preset-css-prop" "^10.0.27"
 
-gatsby-plugin-facebook-pixel@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-facebook-pixel/-/gatsby-plugin-facebook-pixel-1.0.5.tgz#521e52db23a75fa27a55d03d23917cb3edb3391d"
-  integrity sha512-EFozZ47iskV1zIfNz7XGYGYhh0Mhfi9S1rswbRPefnc0s/NhQqVa45Ky82eM2M8yxiICS3BAmI1rS5dFDDNT7Q==
-
 gatsby-plugin-google-gtag@^1.0.8:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-1.2.1.tgz#5d5903531abcff11193ee1977db9552d5133b1c6"
