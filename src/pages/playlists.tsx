@@ -78,6 +78,18 @@ const playlists = [
     name: "Luv-Fi",
     url:
       "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA"
+  },
+  {
+    imgName: "cafe",
+    name: "90s Lofi Cafe",
+    url:
+      "https://open.spotify.com/playlist/1pSDbygGELt1cdNyhuuIK4"
+  },
+  {
+    imgName: "smoke",
+    name: "Lofi & Smoke",
+    url:
+      "https://open.spotify.com/playlist/4NNvLZeUDLftDbdUwDyqrt"
   }
 ];
 
@@ -121,6 +133,20 @@ export const query = graphql`
       }
     }
     luvfi: file(relativePath: { eq: "luvfi.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    cafe: file(relativePath: { eq: "cafe.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    smoke: file(relativePath: { eq: "lofismoke.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG

@@ -25,16 +25,41 @@ const FormContainer = styled.div`
   border-radius: 8px;
   padding: 12px;
 
-  input {
+  input,
+  textarea{
     width: 90%;
     margin-top: 4px;
     margin-bottom: 12px;
     font-size: 14px;
     height: 35px;
   }
+  select{
+    width: 90%;
+    margin-top: 4px;
+    font-size: 14px;
+    height: 35px;
+  }
 
   label {
+    margin-top: 4px;
     display: block;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  text{
+    font-size:13px;
+    color: gray;
+    margin-bottom: 12px;
+  }
+
+  top{
+    font-size: 14px;
+    margin-top: 2px;
+    display: block;
+    margin-bottom: 12px;
   }
 `;
 
@@ -64,9 +89,11 @@ export default ({ data }) => (
         <form
           name="submissions"
           method="POST"
+          netlify-honeypot="bot-field"
           data-netlify="true"
           action="/success"
         >
+          <top>⚠️Anything other than a spotify link will be deleted ⚠️</top>
           <label>Spotify URL:</label>
           <input
             type="text"
@@ -74,10 +101,24 @@ export default ({ data }) => (
             placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu"
             required
           />
+          <label for="playlists">Choose preferred playlist:</label>
 
+          <select name="playlists" id="playlist" required>
+            <option value="Lofi Brokenhearts">Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep</option>
+            <option value="Lofi Indie Pop & Rap">Lofi Indie Pop & Rap</option>
+            <option value="Lofi & Smoke">Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to</option>
+            <option value="Sadboy Vibe check">Sadboy Vibe Check 🖤</option>
+            <option value="90s Lofi Cafe">90s Lofi Café - aesthetic jazzy beats to chill and relax to</option>
+            <option value="Luv-Fi">Luv-Fi</option>
+          </select>
+          <text>Submitting here will submit to all playlists. this is just your prefferred choice. </text>
           <label>Email:</label>
           <input type="text" name="email" placeholder="name@domain.com" />
-
+          <label>Describe your track:</label>
+          <textarea
+            name="Description"
+            placeholder="is this the song about you?"
+          />
           <div>
             <SubmitButton type="submit">Submit</SubmitButton>
           </div>
