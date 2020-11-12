@@ -46,3 +46,9 @@
   to = "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days"
   status = 301
   force = false
+  
+  [[redirects]]
+  from = "/put-your-records-on"
+  to = "https://distrokid.com/hyperfollow/nuqandjulianachahayed/put-your-records-on-2"
+  status = 301
+  force = false
