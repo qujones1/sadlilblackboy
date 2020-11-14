@@ -59,38 +59,36 @@ const playlists = [
     imgName: "indie",
     name: "Lofi Indie Pop & Rap",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/0TAWgrvtM2CbEA1i5LJKzn?si=gn06T5nxQF2GcNTdf4x15Q"
+      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/0TAWgrvtM2CbEA1i5LJKzn?si=gn06T5nxQF2GcNTdf4x15Q",
   },
   {
     imgName: "vibe",
     name: "Sadboy Vibe Check🖤",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/5aCocgqPZe6HzPpmFZ0xnh?si=wrrxPvRiTwabudKYSPGJ5Q"
+      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/5aCocgqPZe6HzPpmFZ0xnh?si=wrrxPvRiTwabudKYSPGJ5Q",
   },
   {
     imgName: "brkn",
     name: "Lofi Brokenhearts💔",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw"
+      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw",
   },
   {
     imgName: "luvfi",
     name: "Luv-Fi",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA"
+      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA",
   },
   {
     imgName: "cafe",
     name: "90s Lofi Cafe",
-    url:
-      "https://open.spotify.com/playlist/1pSDbygGELt1cdNyhuuIK4"
+    url: "https://open.spotify.com/playlist/1pSDbygGELt1cdNyhuuIK4",
   },
   {
     imgName: "smoke",
     name: "Lofi & Smoke",
-    url:
-      "https://open.spotify.com/playlist/4NNvLZeUDLftDbdUwDyqrt"
-  }
+    url: "https://open.spotify.com/playlist/4NNvLZeUDLftDbdUwDyqrt",
+  },
 ];
 
 export default ({ data }) => (
@@ -98,7 +96,7 @@ export default ({ data }) => (
     <Page>
       <h1>[spotify playlists]</h1>
       <Body>
-        {playlists.map(playlist => (
+        {playlists.map((playlist) => (
           <Playlist href={playlist.url}>
             <Img fluid={data[playlist.imgName].childImageSharp.fluid} />
             {playlist.name}

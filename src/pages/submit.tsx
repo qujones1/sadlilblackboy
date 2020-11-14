@@ -1,14 +1,6 @@
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import React from "react";
 import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
-
-const appleSvg = require("../assets/apple.svg") as string;
-const spotifySvg = require("../assets/spotify.svg") as string;
-const googlePng = require("../assets/googlePlay.png") as string;
-const amazonPng = require("../assets/amazon.png") as string;
-const soundcloudSvg = require("../assets/soundcloud2.png") as string;
 
 const Page = styled.div`
   display: flex;
@@ -26,14 +18,14 @@ const FormContainer = styled.div`
   padding: 12px;
 
   input,
-  textarea{
+  textarea {
     width: 90%;
     margin-top: 4px;
     margin-bottom: 12px;
     font-size: 14px;
     height: 35px;
   }
-  select{
+  select {
     width: 90%;
     margin-top: 4px;
     font-size: 14px;
@@ -49,13 +41,13 @@ const FormContainer = styled.div`
     height: 100px;
   }
 
-  text{
-    font-size:13px;
+  text {
+    font-size: 13px;
     color: gray;
     margin-bottom: 12px;
   }
 
-  top{
+  top {
     font-size: 14px;
     margin-top: 2px;
     display: block;
@@ -104,14 +96,23 @@ export default ({ data }) => (
           <label for="playlists">Choose preferred playlist:</label>
 
           <select name="playlists" id="playlist" required>
-            <option value="Lofi Brokenhearts">Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep</option>
+            <option value="Lofi Brokenhearts">
+              Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep
+            </option>
             <option value="Lofi Indie Pop & Rap">Lofi Indie Pop & Rap</option>
-            <option value="Lofi & Smoke">Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to</option>
+            <option value="Lofi & Smoke">
+              Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to
+            </option>
             <option value="Sadboy Vibe check">Sadboy Vibe Check 🖤</option>
-            <option value="90s Lofi Cafe">90s Lofi Café - aesthetic jazzy beats to chill and relax to</option>
+            <option value="90s Lofi Cafe">
+              90s Lofi Café - aesthetic jazzy beats to chill and relax to
+            </option>
             <option value="Luv-Fi">Luv-Fi</option>
           </select>
-          <text>Submitting here will submit to all playlists. this is just your prefferred choice. </text>
+          <text>
+            Submitting here will submit to all playlists. this is just your
+            prefferred choice.{" "}
+          </text>
           <label>Email:</label>
           <input type="text" name="email" placeholder="name@domain.com" />
           <label>Describe your track:</label>
