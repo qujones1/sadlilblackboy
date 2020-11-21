@@ -9,26 +9,6 @@ const spotifySvg = require("../assets/spotify.svg") as string;
 const googlePng = require("../assets/googlePlay.png") as string;
 const soundcloudSvg = require("../assets/soundcloud2.png") as string;
 
-const Playlist = styled.div`
-  width: 100%;
-  position: relative;
-  padding-bottom: 50%;
-
-  iframe {
-    border: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 800px) {
-  }
-`;
-
 const Content = styled.section`
   display: flex;
   @media (max-width: 800px) {
@@ -119,20 +99,6 @@ const ReleaseFrame = styled.div`
   position: relative;
 `;
 
-const ReleaseHeader = styled.h1`
-  display: flex;
-  font-family: "Helvetica Neue Condensed";
-  font-weight: 400;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-  background-color: white;
-  margin-bottom: 0;
-  padding-top: 4px;
-  padding-bottom: 12px;
-`;
-
 const MerchContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -159,12 +125,6 @@ export default ({ data }) => (
   <Layout>
     <Page>
       <Header>Let's all be sad together</Header>
-      <Playlist>
-        <iframe
-          allow="autoplay"
-          src="https://www.youtube.com/embed/videoseries?list=PL8vjFV9ndmZuBfln4WFo8ZH_lhdCOP9us"
-        />
-      </Playlist>
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
