@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
@@ -19,26 +19,28 @@ function MusicLinks({
   googlePlayLink,
 }) {
   return (
-    <div>
-      <a href={soundcloudLink}>
-        <img src={soundcloudSvg} />
-      </a>
-      <a href={appleMusicLink}>
-        <img src={appleSvg} />
-      </a>
-      <a href={spotifyLink}>
-        <img src={spotifySvg} />
-      </a>
-      <a href={googlePlayLink}>
-        <img src={googlePng} />
-      </a>
+    <div className="inset-x-0 bottom-1 absolute flex justify-center">
+      <div className="rounded inline-flex p-2 bg-gray-800">
+        <Link to={soundcloudLink}>
+          <img className="w-8 h-8" src={soundcloudSvg} />
+        </Link>
+        <Link to={appleMusicLink}>
+          <img className="w-8 h-8" src={appleSvg} />
+        </Link>
+        <Link to={spotifyLink}>
+          <img className="w-8 h-8" src={spotifySvg} />
+        </Link>
+        <Link to={googlePlayLink}>
+          <img className="w-8 h-8" src={googlePng} />
+        </Link>
+      </div>
     </div>
   );
 }
 
 function Singles({ data }) {
   return (
-    <div>
+    <div className="flex-grow relative">
       <Img fluid={data.singles.childImageSharp.fluid} />
       <MusicLinks
         soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/singles"
@@ -52,7 +54,7 @@ function Singles({ data }) {
 
 function Beats({ data }) {
   return (
-    <div>
+    <div className="flex-grow relative">
       <Img fluid={data.beats.childImageSharp.fluid} />
       <MusicLinks
         soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/beats"
@@ -76,9 +78,9 @@ function Releases({ data }) {
             : SLBB_AND_NUQ_LINK_PREFIX + name;
 
         return (
-          <a key={img.name} href={link}>
+          <Link key={img.name} to={link}>
             <Img fluid={img.childImageSharp.fluid} />
-          </a>
+          </Link>
         );
       })}
     </section>
@@ -87,8 +89,10 @@ function Releases({ data }) {
 
 export default ({ data }) => (
   <Layout>
-    <Singles data={data} />
-    <Beats data={data} />
+    <div className="flex">
+      <Singles data={data} />
+      <Beats data={data} />
+    </div>
     <Releases data={data} />
   </Layout>
 );
