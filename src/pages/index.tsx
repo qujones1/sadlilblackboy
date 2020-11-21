@@ -1,220 +1,106 @@
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import { Layout } from "../components/layout";
+import { Layout } from "../components/Layout";
 
-const appleSvg = require("../assets/AppleSquare.png") as string;
-const spotifySvg = require("../assets/spotify.svg") as string;
-const googlePng = require("../assets/googlePlay.png") as string;
-const soundcloudSvg = require("../assets/soundcloud2.png") as string;
+const appleSvg = require("../assets/images/AppleSquare.png") as string;
+const spotifySvg = require("../assets/images/spotify.svg") as string;
+const googlePng = require("../assets/images/googlePlay.png") as string;
+const soundcloudSvg = require("../assets/images/soundcloud2.png") as string;
+
+function MusicLinks({
+  soundcloudLink,
+  appleMusicLink,
+  spotifyLink,
+  googlePlayLink,
+}) {
+  return (
+    <div>
+      <a href={soundcloudLink}>
+        <img src={soundcloudSvg} />
+      </a>
+      <a href={appleMusicLink}>
+        <img src={appleSvg} />
+      </a>
+      <a href={spotifyLink}>
+        <img src={spotifySvg} />
+      </a>
+      <a href={googlePlayLink}>
+        <img src={googlePng} />
+      </a>
+    </div>
+  );
+}
+
+function Singles({ data }) {
+  return (
+    <div>
+      <Img fluid={data.singles.childImageSharp.fluid} />
+      <MusicLinks
+        soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/singles"
+        appleMusicLink="https://music.apple.com/us/artist/sadlilblackboy/1475838174"
+        spotifyLink="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa"
+        googlePlayLink="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu"
+      />
+    </div>
+  );
+}
+
+function Beats({ data }) {
+  return (
+    <div>
+      <Img fluid={data.beats.childImageSharp.fluid} />
+      <MusicLinks
+        soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/beats"
+        appleMusicLink="https://music.apple.com/us/artist/nuq/1403168719"
+        spotifyLink="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X"
+        googlePlayLink="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en"
+      />
+    </div>
+  );
+}
+
+function Releases({ data }) {
+  return (
+    <section>
+      {data.releases.nodes.map((img) => {
+        return img.name;
+      })}
+    </section>
+  );
+}
 
 export default ({ data }) => (
   <Layout>
-    <div>
-      <div>
-        <div>
-          <Img className="imgBack" fluid={data.singles.childImageSharp.fluid} />
-          <div>
-            <a href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
-              <img src={soundcloudSvg} />
-            </a>
-            <a href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
-              <img src={appleSvg} />
-            </a>
-            <a href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
-              <img src={spotifySvg} />
-            </a>
-            <a href="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu">
-              <img src={googlePng} />
-            </a>
-          </div>
-        </div>
-        <div>
-          <Img className="imgBack" fluid={data.beats.childImageSharp.fluid} />
-          <div>
-            <a href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
-              <img src={soundcloudSvg} />
-            </a>
-            <a href="https://music.apple.com/us/artist/nuq/1403168719">
-              <img src={appleSvg} />
-            </a>
-            <a href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
-              <img src={spotifySvg} />
-            </a>
-            <a href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
-              <img src={googlePng} />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div>
-          <a href="https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days">
-            <Img fluid={data.singleRelease.childImageSharp.fluid} />
-          </a>
-        </div>
-        <div>
-          <a href="https://distrokid.com/hyperfollow/nuqandjulianachahayed/put-your-records-on-2">
-            <Img fluid={data.beatRelease.childImageSharp.fluid} />
-          </a>
-        </div>
-      </div>
-
-      <section>
-        <a href="https://distrokid.com/hyperfollow/nuq/human-holiday">
-          <Img fluid={data.holiday.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/happy-ending">
-          <Img fluid={data.happy.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/we-had-fun">
-          <Img fluid={data.whf.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
-          <Img fluid={data.wrfr.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/late-nights">
-          <Img fluid={data.latenights.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-2">
-          <Img fluid={data.vol2.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/without-good-reason">
-          <Img fluid={data.WithoutReason.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/hope">
-          <Img fluid={data.hope.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/broken">
-          <Img fluid={data.broken.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/ghev">
-          <Img fluid={data.alone.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/fH50">
-          <Img fluid={data.sad.childImageSharp.fluid} />
-        </a>
-        <a href="https://distrokid.com/hyperfollow/nuq/fkO9">
-          <Img fluid={data.vol1.childImageSharp.fluid} />
-        </a>
-      </section>
-    </div>
+    <Singles data={data} />
+    <Beats data={data} />
+    <Releases data={data} />
   </Layout>
 );
 
 export const query = graphql`
-  {
-    beatRelease: file(relativePath: { eq: "records.PNG" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+  fragment Image_file on File {
+    name
+    childImageSharp {
+      fluid(maxWidth: 1024) {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
-    singleRelease: file(relativePath: { eq: "ctd.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
+  }
 
-    beats: file(relativePath: { eq: "beatsart.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
+  {
+    beats: file(relativePath: { eq: "images/beatsart.png" }) {
+      ...Image_file
     }
-    singles: file(relativePath: { eq: "singleart.PNG" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
+    singles: file(relativePath: { eq: "images/singleart.PNG" }) {
+      ...Image_file
     }
-    holiday: file(relativePath: { eq: "holiday.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    happy: file(relativePath: { eq: "HappyEnding.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    whf: file(relativePath: { eq: "we_had_fun.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    wrfr: file(relativePath: { eq: "WRFR.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    latenights: file(relativePath: { eq: "latenights.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    vol2: file(relativePath: { eq: "vol2.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    WithoutReason: file(relativePath: { eq: "Without_good_reason.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    hope: file(relativePath: { eq: "Hope.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    broken: file(relativePath: { eq: "Broken.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    alone: file(relativePath: { eq: "alone.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    vol1: file(relativePath: { eq: "vol1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    sad: file(relativePath: { eq: "sad.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+    releases: allFile(
+      filter: { relativeDirectory: { eq: "images/releases" } }
+      sort: { fields: [name], order: DESC }
+    ) {
+      nodes {
+        ...Image_file
       }
     }
   }
