@@ -62,7 +62,7 @@ export const Layout = ({ children }) => {
       >
         <html lang="en" />
       </Helmet>
-      <nav className="border-b-4 border-red-500 p-2">
+      <nav className="border-b-4 border-red-500 pl-4 p-2">
         <a className="flex items-center" href="/">
           <Img
             className="rounded-full overflow-hidden shadow-lg mr-2"
@@ -72,7 +72,7 @@ export const Layout = ({ children }) => {
         </a>
         <div className="mt-1">
           {NAV_LINKS.map(({ href, name }) => (
-            <a className="hover:underline mr-1" key={name} href={href}>
+            <a className="hover:underline mr-3" key={name} href={href}>
               {name}
             </a>
           ))}
