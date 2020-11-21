@@ -14,13 +14,36 @@ const query = graphql`
     }
     logo: file(relativePath: { eq: "logo.jpg" }) {
       childImageSharp {
-        fixed(width: 50) {
+        fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }
   }
 `;
+
+const NAV_LINKS = [
+  {
+    href: "/",
+    name: "Home",
+  },
+  {
+    href: "/playlists",
+    name: "Playlists",
+  },
+  {
+    href: "https://teespring.com/stores/sadlilblackboy",
+    name: "Merch",
+  },
+  {
+    href: "/submit",
+    name: "Submissions",
+  },
+  {
+    href: "/contact",
+    name: "Contact",
+  },
+];
 
 export const Layout = ({ children }) => {
   const data = useStaticQuery(query);
@@ -39,19 +62,20 @@ export const Layout = ({ children }) => {
       >
         <html lang="en" />
       </Helmet>
-      <nav>
-        <div>
-          <a href="/">
-            <Img fixed={data.logo.childImageSharp.fixed} />
-            <h1>[sadlilblackboy]</h1>
-          </a>
-          <div>
-            <a href="/">Home</a>
-            <a href="/playlists">Playlists</a>
-            <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
-            <a href="/submit">Submissions</a>
-            <a href="/contact">Contact</a>
-          </div>
+      <nav className="border-b-4 border-red-500 p-2">
+        <a className="flex items-center" href="/">
+          <Img
+            className="rounded-full overflow-hidden shadow-lg mr-2"
+            fixed={data.logo.childImageSharp.fixed}
+          />
+          <h1 className="font-serif text-2xl">[sadlilblackboy]</h1>
+        </a>
+        <div className="mt-1">
+          {NAV_LINKS.map(({ href, name }) => (
+            <a className="hover:underline mr-1" key={name} href={href}>
+              {name}
+            </a>
+          ))}
         </div>
       </nav>
       {children}
