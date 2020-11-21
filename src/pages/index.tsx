@@ -8,6 +8,10 @@ const spotifySvg = require("../assets/images/spotify.svg") as string;
 const googlePng = require("../assets/images/googlePlay.png") as string;
 const soundcloudSvg = require("../assets/images/soundcloud2.png") as string;
 
+const NUQ_LINK_PREFIX = "https://distrokid.com/hyperfollow/nuq/";
+const SLBB_AND_NUQ_LINK_PREFIX =
+  "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/";
+
 function MusicLinks({
   soundcloudLink,
   appleMusicLink,
@@ -64,7 +68,18 @@ function Releases({ data }) {
   return (
     <section>
       {data.releases.nodes.map((img) => {
-        return img.name;
+        const name = img.name.split("_")[1];
+        // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
+        const link =
+          name !== "counting-the-days"
+            ? NUQ_LINK_PREFIX + name
+            : SLBB_AND_NUQ_LINK_PREFIX + name;
+
+        return (
+          <a key={img.name} href={link}>
+            <Img fluid={img.childImageSharp.fluid} />
+          </a>
+        );
       })}
     </section>
   );
