@@ -1,77 +1,11 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
-
-const Page = styled.div`
-  display: flex;
-  max-width: 600px;
-  margin: 0 auto;
-  flex-direction: column;
-  font-family: "Helvetica Neue Condensed";
-  color: white;
-  padding: 16px 8px;
-`;
-
-const FormContainer = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-  border-radius: 8px;
-  padding: 12px;
-
-  input,
-  textarea {
-    width: 90%;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    height: 35px;
-  }
-  select {
-    width: 90%;
-    margin-top: 4px;
-    font-size: 14px;
-    height: 35px;
-  }
-
-  label {
-    margin-top: 4px;
-    display: block;
-  }
-
-  textarea {
-    height: 100px;
-  }
-
-  text {
-    font-size: 13px;
-    color: gray;
-    margin-bottom: 12px;
-  }
-
-  top {
-    font-size: 14px;
-    margin-top: 2px;
-    display: block;
-    margin-bottom: 12px;
-  }
-`;
-
-const SubmitButton = styled.button`
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 12px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 6px;
-  font-size: 16px;
-`;
 
 export default ({ data }) => (
   <Layout>
-    <Page>
+    <div>
       <h1>[submit]</h1>
-      <FormContainer>
+      <div>
         <p>
           Fill in the form below if you are looking for a chance to be added to
           one of our spotify playlists. Provide a link to one of your songs that
@@ -85,7 +19,7 @@ export default ({ data }) => (
           data-netlify="true"
           action="/success"
         >
-          <top>⚠️Anything other than a spotify link will be deleted ⚠️</top>
+          <div>⚠️Anything other than a spotify link will be deleted ⚠️</div>
           <label>Spotify URL:</label>
           <input
             type="text"
@@ -93,7 +27,7 @@ export default ({ data }) => (
             placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu"
             required
           />
-          <label for="playlists">Choose preferred playlist:</label>
+          <label>Choose preferred playlist:</label>
 
           <select name="playlists" id="playlist" required>
             <option value="Lofi Brokenhearts">
@@ -121,11 +55,11 @@ export default ({ data }) => (
             placeholder="is this the song about you?"
           />
           <div>
-            <SubmitButton type="submit">Submit</SubmitButton>
+            <button type="submit">Submit</button>
           </div>
           <input type="hidden" name="form-name" value="submissions" />
         </form>
-      </FormContainer>
-    </Page>
+      </div>
+    </div>
   </Layout>
 );

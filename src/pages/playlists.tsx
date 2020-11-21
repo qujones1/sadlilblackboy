@@ -1,58 +1,7 @@
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
-
-const Page = styled.div`
-  display: flex;
-  max-width: 600px;
-  margin: 0 auto;
-  flex-direction: column;
-  font-family: "Helvetica Neue Condensed";
-  color: white;
-
-  @media (max-width: 400px) {
-    flex-wrap: wrap;
-  }
-`;
-
-const Body = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 5px;
-  font-family: "Helvetica Neue Condensed";
-  font-weight: 400;
-  color: white;
-`;
-
-const Playlist = styled.a`
-  flex: 50%;
-  padding: 0 12px;
-  text-decoration: none;
-  color: white;
-
-  img {
-    margin-top: 8px;
-    vertical-align: middle;
-    transition: transform 0.2s;
-  }
-
-  a {
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    margin-bottom: 7px;
-  }
-
-  img:hover {
-    transform: scale(1.2);
-  }
-
-  a:link {
-    text-decoration: none;
-  }
-`;
 
 const playlists = [
   {
@@ -93,17 +42,17 @@ const playlists = [
 
 export default ({ data }) => (
   <Layout>
-    <Page>
+    <div>
       <h1>[spotify playlists]</h1>
-      <Body>
+      <div>
         {playlists.map((playlist) => (
-          <Playlist href={playlist.url}>
+          <a href={playlist.url}>
             <Img fluid={data[playlist.imgName].childImageSharp.fluid} />
             {playlist.name}
-          </Playlist>
+          </a>
         ))}
-      </Body>
-    </Page>
+      </div>
+    </div>
   </Layout>
 );
 
