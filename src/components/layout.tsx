@@ -5,6 +5,11 @@ import Img from "gatsby-image";
 import React from "react";
 import Helmet from "react-helmet";
 
+type Props = {
+  children: React.ReactNode;
+  className?: string;
+};
+
 const query = graphql`
   {
     site {
@@ -45,7 +50,7 @@ const NAV_LINKS = [
   },
 ];
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, className }: Props) => {
   const data = useStaticQuery(query);
 
   return (
@@ -62,13 +67,13 @@ export const Layout = ({ children }) => {
       >
         <html lang="en" />
       </Helmet>
-      <nav className="border-b-4 border-red-500 pl-4 p-2">
+      <nav className="max-w-screen-md mx-auto border-b-4 border-red-500 pl-4 p-2">
         <a className="flex items-center" href="/">
           <Img
             className="rounded-full overflow-hidden shadow-lg mr-2"
             fixed={data.logo.childImageSharp.fixed}
           />
-          <h1 className="font-serif text-2xl">[sadlilblackboy]</h1>
+          <span className="font-serif text-2xl">[sadlilblackboy]</span>
         </a>
         <div className="mt-1">
           {NAV_LINKS.map(({ href, name }) => (
@@ -78,7 +83,9 @@ export const Layout = ({ children }) => {
           ))}
         </div>
       </nav>
-      {children}
+      <main className={`max-w-screen-md mx-auto p-2 ${className}`}>
+        {children}
+      </main>
     </React.Fragment>
   );
 };

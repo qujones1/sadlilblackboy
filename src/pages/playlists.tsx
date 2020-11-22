@@ -58,42 +58,42 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    indie: file(relativePath: { eq: "indie2.png" }) {
+    indie: file(relativePath: { eq: "images/playlists/indie2.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    vibe: file(relativePath: { eq: "vibecheck.png" }) {
+    vibe: file(relativePath: { eq: "images/playlists/vibecheck.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    brkn: file(relativePath: { eq: "roses.png" }) {
+    brkn: file(relativePath: { eq: "images/playlists/roses.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    luvfi: file(relativePath: { eq: "luvfi.png" }) {
+    luvfi: file(relativePath: { eq: "images/playlists/luvfi.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    cafe: file(relativePath: { eq: "cafe.png" }) {
+    cafe: file(relativePath: { eq: "images/playlists/cafe.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    smoke: file(relativePath: { eq: "lofismoke.png" }) {
+    smoke: file(relativePath: { eq: "images/playlists/lofismoke.png" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
