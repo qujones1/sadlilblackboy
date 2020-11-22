@@ -1,11 +1,12 @@
-import "tailwindcss/tailwind.css";
+import "./index.css";
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import Helmet from "react-helmet";
 
 type Props = {
+  header?: string;
   children: React.ReactNode;
   className?: string;
 };
@@ -50,11 +51,11 @@ const NAV_LINKS = [
   },
 ];
 
-export const Layout = ({ children, className }: Props) => {
+export function Layout({ children, className, header }: Props) {
   const data = useStaticQuery(query);
 
   return (
-    <React.Fragment>
+    <>
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[
@@ -67,25 +68,26 @@ export const Layout = ({ children, className }: Props) => {
       >
         <html lang="en" />
       </Helmet>
-      <nav className="max-w-screen-md mx-auto border-b-4 border-red-500 pl-4 p-2">
-        <a className="flex items-center" href="/">
+      <nav className="max-w-screen-md mx-auto border-b-4 border-red-500 px-4 py-2">
+        <Link className="flex items-center" to="/">
           <Img
             className="rounded-full overflow-hidden shadow-lg mr-2"
             fixed={data.logo.childImageSharp.fixed}
           />
-          <span className="font-serif text-2xl">[sadlilblackboy]</span>
-        </a>
+          <span className="font-serif text-3xl">[sadlilblackboy]</span>
+        </Link>
         <div className="mt-1">
           {NAV_LINKS.map(({ href, name }) => (
-            <a className="hover:underline mr-3" key={name} href={href}>
+            <Link className="hover:underline mr-3" key={name} to={href}>
               {name}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>
       <main className={`max-w-screen-md mx-auto p-2 ${className}`}>
+        {header != null && <h1 className="heading mb-2">[{header}]</h1>}
         {children}
       </main>
-    </React.Fragment>
+    </>
   );
-};
+}

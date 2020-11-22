@@ -1,9 +1,9 @@
 import React from "react";
+
 import { Layout } from "../components/Layout";
 
 export default () => (
-  <Layout>
-    <h1 className="text-2xl mb-2">[contact]</h1>
+  <Layout header="contact">
     <form name="contact" method="POST" data-netlify="true" action="/success">
       <div className="flex">
         <label>Name:</label>

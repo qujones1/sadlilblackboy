@@ -20,7 +20,7 @@ function MusicLinks({
 }) {
   return (
     <div className="inset-x-0 bottom-1 absolute flex justify-center">
-      <div className="rounded inline-flex p-2 bg-gray-800">
+      <div className="rounded inline-flex p-2 bg-gray-800 items-center">
         <Link to={soundcloudLink}>
           <img className="w-8 h-8" src={soundcloudSvg} />
         </Link>
@@ -69,31 +69,34 @@ function Beats({ data }) {
 function Releases({ data }) {
   return (
     <section>
-      {data.releases.nodes.map((img) => {
-        const name = img.name.split("_")[1];
-        // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
-        const link =
-          name !== "counting-the-days"
-            ? NUQ_LINK_PREFIX + name
-            : SLBB_AND_NUQ_LINK_PREFIX + name;
+      <h2 className="heading mb-2">[recent releases]</h2>
+      <div className="flex flex-wrap overflow-y-auto h-96">
+        {data.releases.nodes.map((img) => {
+          const name = img.name.split("_")[1];
+          // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
+          const link =
+            name !== "counting-the-days"
+              ? NUQ_LINK_PREFIX + name
+              : SLBB_AND_NUQ_LINK_PREFIX + name;
 
-        return (
-          <Link key={img.name} to={link}>
-            <Img fluid={img.childImageSharp.fluid} />
-          </Link>
-        );
-      })}
+          return (
+            <Link className="w-1/3 pr-1 pb-1" key={img.name} to={link}>
+              <Img fluid={img.childImageSharp.fluid} />
+            </Link>
+          );
+        })}
+      </div>
     </section>
   );
 }
 
 export default ({ data }) => (
   <Layout>
-    <div className="flex">
+    <Releases data={data} />
+    <section className="flex">
       <Singles data={data} />
       <Beats data={data} />
-    </div>
-    <Releases data={data} />
+    </section>
   </Layout>
 );
 

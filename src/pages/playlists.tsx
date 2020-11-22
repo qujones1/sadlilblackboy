@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
@@ -41,17 +41,14 @@ const playlists = [
 ];
 
 export default ({ data }) => (
-  <Layout>
+  <Layout header="playlists">
     <div>
-      <h1>[spotify playlists]</h1>
-      <div>
-        {playlists.map((playlist) => (
-          <a href={playlist.url}>
-            <Img fluid={data[playlist.imgName].childImageSharp.fluid} />
-            {playlist.name}
-          </a>
-        ))}
-      </div>
+      {playlists.map((playlist) => (
+        <Link to={playlist.url}>
+          {playlist.name}
+          <Img fluid={data[playlist.imgName].childImageSharp.fluid} />
+        </Link>
+      ))}
     </div>
   </Layout>
 );

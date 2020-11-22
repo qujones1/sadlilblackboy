@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.heading {
+  @apply font-serif text-2xl;
+}

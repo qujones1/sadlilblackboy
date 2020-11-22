@@ -2,8 +2,7 @@ import React from "react";
 import { Layout } from "../components/Layout";
 
 export default ({ _ }) => (
-  <Layout>
-    <h1 className="text-2xl mb-2">[submit]</h1>
+  <Layout header="submissions">
     <div>
       <p>
         Fill in the form below if you are looking for a chance to be added to
