@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.heading {
-  @apply font-serif text-2xl;
+@layer base {
+  h1 {
+    @apply font-serif text-2xl mb-2;
+  }
+
+  h2 {
+    @apply font-serif text-xl mb-2;
+  }
 }

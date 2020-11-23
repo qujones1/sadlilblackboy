@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
@@ -21,18 +21,18 @@ function MusicLinks({
   return (
     <div className="inset-x-0 bottom-1 absolute flex justify-center">
       <div className="rounded inline-flex p-2 bg-gray-800 items-center">
-        <Link to={soundcloudLink}>
+        <a href={soundcloudLink}>
           <img className="w-8 h-8" src={soundcloudSvg} />
-        </Link>
-        <Link to={appleMusicLink}>
+        </a>
+        <a href={appleMusicLink}>
           <img className="w-8 h-8" src={appleSvg} />
-        </Link>
-        <Link to={spotifyLink}>
+        </a>
+        <a href={spotifyLink}>
           <img className="w-8 h-8" src={spotifySvg} />
-        </Link>
-        <Link to={googlePlayLink}>
+        </a>
+        <a href={googlePlayLink}>
           <img className="w-8 h-8" src={googlePng} />
-        </Link>
+        </a>
       </div>
     </div>
   );
@@ -80,9 +80,9 @@ function Releases({ data }) {
               : SLBB_AND_NUQ_LINK_PREFIX + name;
 
           return (
-            <Link className="w-1/3 pr-1 pb-1" key={img.name} to={link}>
+            <a className="w-1/3 pr-1 pb-1" key={img.name} href={link}>
               <Img fluid={img.childImageSharp.fluid} />
-            </Link>
+            </a>
           );
         })}
       </div>

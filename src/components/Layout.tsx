@@ -34,19 +34,19 @@ const NAV_LINKS = [
     name: "Home",
   },
   {
-    href: "/playlists",
+    href: "/playlists/",
     name: "Playlists",
   },
   {
-    href: "https://teespring.com/stores/sadlilblackboy",
+    href: "https://teespring.com/stores/sadlilblackboy/",
     name: "Merch",
   },
   {
-    href: "/submit",
+    href: "/submit/",
     name: "Submissions",
   },
   {
-    href: "/contact",
+    href: "/contact/",
     name: "Contact",
   },
 ];
@@ -74,18 +74,31 @@ export function Layout({ children, className, header }: Props) {
             className="rounded-full overflow-hidden shadow-lg mr-2"
             fixed={data.logo.childImageSharp.fixed}
           />
-          <span className="font-serif text-3xl">[sadlilblackboy]</span>
+          <span className="font-serif text-2xl sm:text-3xl">
+            [sadlilblackboy]
+          </span>
         </Link>
-        <div className="mt-1">
-          {NAV_LINKS.map(({ href, name }) => (
-            <Link className="hover:underline mr-3" key={name} to={href}>
-              {name}
-            </Link>
-          ))}
+        <div className="mt-1 space-x-3">
+          {NAV_LINKS.map(({ href, name }) =>
+            href[0] === "/" ? (
+              <Link
+                activeClassName="border-b-2 border-black"
+                className="hover:opacity-50"
+                key={name}
+                to={href}
+              >
+                {name}
+              </Link>
+            ) : (
+              <a className="hover:opacity-50" key={name} href={href}>
+                {name}
+              </a>
+            )
+          )}
         </div>
       </nav>
       <main className={`max-w-screen-md mx-auto p-2 ${className}`}>
-        {header != null && <h1 className="heading mb-2">[{header}]</h1>}
+        {header != null && <h1>[{header}]</h1>}
         {children}
       </main>
     </>

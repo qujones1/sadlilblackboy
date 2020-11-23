@@ -1,17 +1,18 @@
 import React from "react";
 import { Layout } from "../components/Layout";
+import { Select } from "../components/Select";
+
+import { TextArea } from "../components/TextArea";
+import { TextInput } from "../components/TextInput";
 
 export default ({ _ }) => (
   <Layout header="submissions">
-    <div>
+    <div className="space-y-4">
       <p>
         Fill in the form below if you are looking for a chance to be added to
         one of our spotify playlists. Provide a link to one of your songs that
         you think will fit any of our playlists, and provide your email so that
         we could reach out to you.
-      </p>
-      <p className="border-l-4 border-red-400 bg-red-200 p-2 my-1">
-        IMPORTANT: Anything other than a spotify link will be deleted!
       </p>
       <form
         name="submissions"
@@ -20,61 +21,65 @@ export default ({ _ }) => (
         data-netlify="true"
         action="/success"
       >
-        <div className="flex">
-          <label>Spotify URL:</label>
-          <input
-            className="ml-1 flex-grow"
-            type="text"
+        <div className="space-y-3">
+          <TextInput label="Email" name="email" placeholder="name@domain.com" />
+          <TextInput
+            className="w-full"
+            label="Spotify URL"
             name="trackurl"
             placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu"
-            required
           />
-        </div>
-        <div className="flex flex-col">
-          <label>Choose preferred playlist:</label>
-          <select name="playlists" id="playlist" required>
-            <option value="Lofi Brokenhearts">
-              Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep
-            </option>
-            <option value="Lofi Indie Pop & Rap">Lofi Indie Pop & Rap</option>
-            <option value="Lofi & Smoke">
-              Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to
-            </option>
-            <option value="Sadboy Vibe check">Sadboy Vibe Check 🖤</option>
-            <option value="90s Lofi Cafe">
-              90s Lofi Café - aesthetic jazzy beats to chill and relax to
-            </option>
-            <option value="Luv-Fi">Luv-Fi</option>
-          </select>
-          <text className="text-gray-400">
-            Submitting here will submit to all playlists. this is just your
-            preferred choice.
-          </text>
-        </div>
+          <div className="space-y-1">
+            <Select
+              label="Choose preferred playlist"
+              name="playlists"
+              options={[
+                {
+                  value: "Lofi Brokenhearts",
+                  description:
+                    "Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep",
+                },
+                {
+                  value: "Lofi Indie Pop & Rap",
+                  description: "Lofi Indie Pop & Rap",
+                },
+                {
+                  value: "Lofi & Smoke",
+                  description:
+                    "Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to",
+                },
+                {
+                  value: "Sadboy Vibe Check",
+                  description: "Sadboy Vibe Check 🖤",
+                },
+                {
+                  value: "90s Lofi Cafe",
+                  description:
+                    "90s Lofi Café - aesthetic jazzy beats to chill and relax to",
+                },
+                { value: "Luv-Fi", description: "Luv-Fi" },
+              ]}
+            />
 
-        <div className="flex">
-          <label>Email:</label>
-          <input
-            className="ml-1 flex-grow"
-            type="text"
-            name="email"
-            placeholder="name@domain.com"
-          />
-        </div>
+            <p className="border-l-4 border-gray-300 pl-2 text-gray-500 text-sm">
+              This is just your preferred choice: Your submission will be
+              considered for all playlists.
+            </p>
+          </div>
 
-        <div className="flex flex-col">
-          <label>Describe your track:</label>
-          <textarea
+          <TextArea
+            label="Describe your track"
             name="Description"
-            placeholder="Is this the song about you?"
+            placeholder="Is this song about you?"
           />
+
+          <button
+            className="rounded bg-blue-400 text-white py-1 px-3"
+            type="submit"
+          >
+            Submit
+          </button>
         </div>
-        <button
-          className="rounded bg-green-400 text-white py-1 px-3 mt-1"
-          type="submit"
-        >
-          Submit
-        </button>
         <input type="hidden" name="form-name" value="submissions" />
       </form>
     </div>
