@@ -55,44 +55,44 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
-    indie: file(relativePath: { eq: "images/playlists/indie2.png" }) {
+    indie: file(relativePath: { eq: "images/playlists/indie2.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
+        fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    vibe: file(relativePath: { eq: "images/playlists/vibecheck.png" }) {
+    vibe: file(relativePath: { eq: "images/playlists/vibecheck.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
+        fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    brkn: file(relativePath: { eq: "images/playlists/roses.png" }) {
+    brkn: file(relativePath: { eq: "images/playlists/roses.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
+        fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    luvfi: file(relativePath: { eq: "images/playlists/luvfi.png" }) {
+    luvfi: file(relativePath: { eq: "images/playlists/luvfi.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
+        fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    cafe: file(relativePath: { eq: "images/playlists/cafe.png" }) {
+    cafe: file(relativePath: { eq: "images/playlists/cafe.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
+        fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
-    smoke: file(relativePath: { eq: "images/playlists/lofismoke.png" }) {
+    smoke: file(relativePath: { eq: "images/playlists/lofismoke.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
+        fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
