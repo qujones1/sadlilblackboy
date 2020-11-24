@@ -1,5 +1,5 @@
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { graphql } from "gatsby";
+import Image from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
 
@@ -44,9 +44,13 @@ export default ({ data }) => (
   <Layout header="playlists">
     <div className="flex flex-wrap">
       {playlists.map((playlist) => (
-        <a className="w-1/3" key={playlist.imgName} href={playlist.url}>
+        <a
+          className="w-1/3 pr-1 text-sm"
+          key={playlist.imgName}
+          href={playlist.url}
+        >
           {playlist.name}
-          <Img fluid={data[playlist.imgName].childImageSharp.fluid} />
+          <Image fluid={data[playlist.imgName].childImageSharp.fluid} />
         </a>
       ))}
     </div>

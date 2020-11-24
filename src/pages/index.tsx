@@ -70,7 +70,7 @@ function Releases({ data }) {
   return (
     <section>
       <h2 className="heading mb-2">[recent releases]</h2>
-      <div className="flex flex-wrap overflow-y-auto h-96">
+      <div className="flex flex-wrap overflow-y-auto h-48">
         {data.releases.nodes.map((img) => {
           const name = img.name.split("_")[1];
           // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
