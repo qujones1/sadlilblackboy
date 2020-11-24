@@ -5,33 +5,24 @@ import { Layout } from "../components/Layout";
 
 const appleSvg = require("../assets/images/AppleSquare.png") as string;
 const spotifySvg = require("../assets/images/spotify.svg") as string;
-const googlePng = require("../assets/images/googlePlay.png") as string;
 const soundcloudSvg = require("../assets/images/soundcloud2.png") as string;
 
 const NUQ_LINK_PREFIX = "https://distrokid.com/hyperfollow/nuq/";
 const SLBB_AND_NUQ_LINK_PREFIX =
   "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/";
 
-function MusicLinks({
-  soundcloudLink,
-  appleMusicLink,
-  spotifyLink,
-  googlePlayLink,
-}) {
+function MusicLinks({ soundcloudLink, appleMusicLink, spotifyLink }) {
   return (
     <div className="inset-x-0 bottom-1 absolute flex justify-center">
-      <div className="rounded inline-flex p-2 bg-gray-800 items-center">
+      <div className="rounded inline-flex p-2 bg-gray-800 items-center space-x-1">
+        <a href={spotifyLink}>
+          <img width={30} height={30} src={spotifySvg} />
+        </a>
         <a href={soundcloudLink}>
-          <img className="w-8 h-8" src={soundcloudSvg} />
+          <img width={30} height={30} src={soundcloudSvg} />
         </a>
         <a href={appleMusicLink}>
-          <img className="w-8 h-8" src={appleSvg} />
-        </a>
-        <a href={spotifyLink}>
-          <img className="w-8 h-8" src={spotifySvg} />
-        </a>
-        <a href={googlePlayLink}>
-          <img className="w-8 h-8" src={googlePng} />
+          <img width={30} height={30} src={appleSvg} />
         </a>
       </div>
     </div>
@@ -46,7 +37,6 @@ function Singles({ data }) {
         soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/singles"
         appleMusicLink="https://music.apple.com/us/artist/sadlilblackboy/1475838174"
         spotifyLink="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa"
-        googlePlayLink="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu"
       />
     </div>
   );
@@ -60,7 +50,6 @@ function Beats({ data }) {
         soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/beats"
         appleMusicLink="https://music.apple.com/us/artist/nuq/1403168719"
         spotifyLink="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X"
-        googlePlayLink="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en"
       />
     </div>
   );
