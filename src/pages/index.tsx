@@ -4,7 +4,7 @@ import React from "react";
 import { Layout } from "../components/Layout";
 
 const appleSvg = require("../assets/images/AppleSquare.png") as string;
-const spotifySvg = require("../assets/images/spotify.svg") as string;
+const spotifySvg = require("../assets/icons/spotify.svg") as string;
 const soundcloudSvg = require("../assets/images/soundcloud2.png") as string;
 
 const NUQ_LINK_PREFIX = "https://distrokid.com/hyperfollow/nuq/";
