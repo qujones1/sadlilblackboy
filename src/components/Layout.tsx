@@ -1,6 +1,7 @@
+import "./tailwind.css";
 import "./index.css";
 
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 import React from "react";
 import Helmet from "react-helmet";
@@ -24,7 +25,6 @@ const query = graphql`
 
 export function Layout({ children, className, header }: Props) {
   const data = useStaticQuery(query);
-
   return (
     <>
       <Helmet
@@ -40,6 +40,7 @@ export function Layout({ children, className, header }: Props) {
         <html lang="en" />
       </Helmet>
       <Nav />
+
       <main className={`max-w-screen-md mx-auto p-2 ${className}`}>
         {header != null && <h1>[{header}]</h1>}
         {children}

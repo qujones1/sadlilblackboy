@@ -111,7 +111,7 @@ export function Nav() {
             <nav className="flex flex-col items-start space-y-1 text-xl">
               {nav}
             </nav>
-            <div className="sm:hidden ml-auto" onClick={toggleNav}>
+            <div className="ml-auto cursor-pointer" onClick={toggleNav}>
               <img width={40} height={40} src={closeIcon} />
             </div>
           </div>
@@ -130,7 +130,7 @@ export function Nav() {
             [sadlilblackboy]
           </span>
           <div className="hidden sm:block ml-auto">{social}</div>
-          <div className="sm:hidden ml-auto" onClick={toggleNav}>
+          <div className="sm:hidden ml-auto cursor-pointer" onClick={toggleNav}>
             <img width={40} height={40} src={menuIcon} />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
-import React from "react";
+import React, { useState } from "react";
+import Popup from "reactjs-popup";
 import { Layout } from "../components/Layout";
 
 const appleSvg = require("../assets/images/AppleSquare.png") as string;
@@ -79,15 +80,65 @@ function Releases({ data }) {
   );
 }
 
-export default ({ data }) => (
-  <Layout>
-    <Releases data={data} />
-    <section className="flex">
-      <Singles data={data} />
-      <Beats data={data} />
-    </section>
-  </Layout>
-);
+export default ({ data }) => {
+  const [modalOpen, setModalOpen] = useState(true);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const firstRelease = data.releases.nodes[0];
+  const name = firstRelease.name.split("_")[1];
+  // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
+  const link =
+    name !== "counting-the-days"
+      ? NUQ_LINK_PREFIX + name
+      : SLBB_AND_NUQ_LINK_PREFIX + name;
+
+  return (
+    <>
+      <Layout className="space-y-2">
+        <Releases data={data} />
+        <section>
+          <h2 className="mb-2">[browse]</h2>
+          <div className="flex">
+            <Singles data={data} />
+            <Beats data={data} />
+          </div>
+        </section>
+      </Layout>
+      <Popup
+        className="modal"
+        open={modalOpen}
+        onClose={handleModalClose}
+        modal
+      >
+        <div className="w-full h-full bg-white shadow-2xl rounded-lg flex flex-col relative">
+          <div className="p-2">
+            <span className="font-serif text-2xl">[new release]</span>
+          </div>
+          <img
+            onClick={handleModalClose}
+            className="absolute top-2 right-2 cursor-pointer"
+            width={40}
+            height={40}
+            src={require("../assets/icons/close.svg")}
+          />
+          <a
+            className="min-h-0 flex-1 flex"
+            key={firstRelease.name}
+            href={link}
+          >
+            <Image
+              className="flex-1 rounded-b-lg"
+              fluid={firstRelease.childImageSharp.fluid}
+            />
+          </a>
+        </div>
+      </Popup>
+    </>
+  );
+};
 
 export const query = graphql`
   fragment Image_file on File {
