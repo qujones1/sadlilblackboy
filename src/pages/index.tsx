@@ -1,8 +1,10 @@
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
 import React, { useState } from "react";
-import Popup from "reactjs-popup";
 import { Layout } from "../components/Layout";
+import loadable from "@loadable/component";
+
+const Popup = loadable(() => import("reactjs-popup"));
 
 const appleSvg = require("../assets/images/AppleSquare.png") as string;
 const spotifySvg = require("../assets/icons/spotify.svg") as string;

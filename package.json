@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@types/react-dom": "^16.9.9",
     "@types/react-helmet": "^6.1.0",
     "autoprefixer": "^10.0.2",
