@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import Image from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
 
@@ -41,7 +41,7 @@ function MusicLinks({
 function Singles({ data }) {
   return (
     <div className="flex-grow relative">
-      <Img fluid={data.singles.childImageSharp.fluid} />
+      <Image fluid={data.singles.childImageSharp.fluid} />
       <MusicLinks
         soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/singles"
         appleMusicLink="https://music.apple.com/us/artist/sadlilblackboy/1475838174"
@@ -55,7 +55,7 @@ function Singles({ data }) {
 function Beats({ data }) {
   return (
     <div className="flex-grow relative">
-      <Img fluid={data.beats.childImageSharp.fluid} />
+      <Image fluid={data.beats.childImageSharp.fluid} />
       <MusicLinks
         soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/beats"
         appleMusicLink="https://music.apple.com/us/artist/nuq/1403168719"
@@ -69,8 +69,8 @@ function Beats({ data }) {
 function Releases({ data }) {
   return (
     <section>
-      <h2 className="heading mb-2">[recent releases]</h2>
-      <div className="flex flex-wrap overflow-y-auto h-48">
+      <h2 className="mb-2">[recent releases]</h2>
+      <div className="grid grid-cols-3 gap-1 overflow-y-auto h-48 sm:h-96">
         {data.releases.nodes.map((img) => {
           const name = img.name.split("_")[1];
           // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
@@ -80,8 +80,8 @@ function Releases({ data }) {
               : SLBB_AND_NUQ_LINK_PREFIX + name;
 
           return (
-            <a className="w-1/3 pr-1 pb-1" key={img.name} href={link}>
-              <Img fluid={img.childImageSharp.fluid} />
+            <a key={img.name} href={link}>
+              <Image fluid={img.childImageSharp.fluid} />
             </a>
           );
         })}

@@ -16,7 +16,7 @@ export function Select({ className, label, name, options }: Props) {
         {label}
       </label>
       <select
-        className="shadow-sm border border-gray-300 py-1 px-3 rounded appearance-none text-sm"
+        className="shadow-sm border border-gray-300 py-1 px-3 rounded appearance-none text-sm bg-white"
         name={name}
       >
         {options.map((option) => (

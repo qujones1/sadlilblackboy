@@ -42,13 +42,9 @@ const playlists = [
 
 export default ({ data }) => (
   <Layout header="playlists">
-    <div className="flex flex-wrap">
+    <div className="grid grid-cols-2 gap-x-1 gap-y-2">
       {playlists.map((playlist) => (
-        <a
-          className="w-1/3 pr-1 text-sm"
-          key={playlist.imgName}
-          href={playlist.url}
-        >
+        <a className="text-sm" key={playlist.imgName} href={playlist.url}>
           {playlist.name}
           <Image fluid={data[playlist.imgName].childImageSharp.fluid} />
         </a>

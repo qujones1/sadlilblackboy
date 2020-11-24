@@ -1,16 +1,14 @@
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import Image from "gatsby-image";
 import React from "react";
 
 import { Layout } from "../components/Layout";
 
 export default ({ data }) => (
   <Layout header="success">
+    <p>Thank You! An email has been sent.</p>
     <div>
-      <p>Thank You! An email has been sent.</p>
-      <div>
-        <Img fluid={data.dab.childImageSharp.fluid} />
-      </div>
+      <Image fluid={data.dab.childImageSharp.fluid} />
     </div>
   </Layout>
 );
