@@ -56,8 +56,8 @@ export function Nav() {
   return (
     <>
       {mobileNavVisible && (
-        <div className="flex inset-0 m-auto fixed w-full h-full bg-white z-10 p-6">
-          <nav className="flex flex-col items-start space-y-1">
+        <div className="flex inset-0 m-auto fixed w-full h-full bg-white z-10 p-4">
+          <nav className="flex flex-col items-start space-y-1 text-xl">
             {NAV_LINKS.map(({ href, name }) =>
               href[0] === "/" ? (
                 <Link
@@ -75,20 +75,12 @@ export function Nav() {
               )
             )}
           </nav>
+          <div className="sm:hidden ml-auto" onClick={toggleNav}>
+            <img width={40} height={40} src={closeIcon} />
+          </div>
         </div>
       )}
       <section className="max-w-screen-md mx-auto border-b-4 border-red-500 px-4 py-2 relative">
-        <div
-          className="sm:hidden absolute top-2 right-2 z-10 p-4"
-          onClick={toggleNav}
-        >
-          {mobileNavVisible ? (
-            <img width={25} height={25} src={closeIcon} />
-          ) : (
-            <img width={25} height={25} src={menuIcon} />
-          )}
-        </div>
-
         <div className="flex items-center">
           <Link to="/">
             <Image
@@ -99,6 +91,9 @@ export function Nav() {
           <span className="font-serif text-xl sm:text-3xl">
             [sadlilblackboy]
           </span>
+          <div className="sm:hidden ml-auto" onClick={toggleNav}>
+            <img width={40} height={40} src={menuIcon} />
+          </div>
         </div>
         <nav className="hidden mt-1 space-x-3 sm:block">
           {NAV_LINKS.map(({ href, name }) =>
