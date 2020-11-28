@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import Image from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocalStorage } from "@rehooks/local-storage";
@@ -54,44 +54,50 @@ export default function NewReleasesModal() {
       open={modalShouldBeOpen}
       onClose={handleModalClose}
       modal
+      closeOnDocumentClick={false}
     >
-      <div className="w-full h-full bg-white shadow-2xl rounded-lg flex flex-col relative p-4 border-4 border-black">
-        <div className="flex flex-1 space-x-0.5">
-          <a
-            className="flex flex-col flex-1 relative"
-            key={song.name}
-            href={data.song.url}
+      <div
+        onClick={handleModalClose}
+        className="flex flex-1 justify-center items-center"
+      >
+        <div className="flex w-72 h-72 sm:w-2/3 md:w-1/2 sm:h-1/2 bg-white shadow-2xl rounded-lg flex-col relative p-4 border-4 border-black">
+          <div className="flex min-h-0 flex-1 space-x-0.5">
+            <a
+              className="flex flex-col flex-1 relative"
+              key={song.name}
+              href={data.song.url}
+            >
+              <h3>[new song]</h3>
+              <Image
+                className="flex-1 rounded-bl-lg"
+                fluid={song.childImageSharp.fluid}
+              />
+              <button className="absolute bottom-2 left-0 right-0 mx-auto bg-white px-3 py-1 font-header sm:text-xl underline m-1 border-2  border-black rounded">
+                Listen Now
+              </button>
+            </a>
+            <a
+              className="flex flex-col flex-1 relative"
+              key={beat.name}
+              href={data.beat.url}
+            >
+              <h3>[new beat]</h3>
+              <Image
+                className="flex-1 rounded-br-lg"
+                fluid={beat.childImageSharp.fluid}
+              />
+              <button className="absolute bottom-2 left-0 right-0 mx-auto bg-white px-3 py-1 font-header sm:text-xl underline m-1 border-2  border-black rounded">
+                Listen Now
+              </button>
+            </a>
+          </div>
+          <button
+            className="relative -bottom-2 text-sm text-gray-500 underline"
+            onClick={handleModalClose}
           >
-            <h3>[new song]</h3>
-            <Image
-              className="flex-1 rounded-bl-lg"
-              fluid={song.childImageSharp.fluid}
-            />
-            <button className="absolute bottom-2 left-0 right-0 mx-auto bg-white px-3 py-1 font-header sm:text-xl underline m-1 border-2  border-black rounded">
-              Listen Now
-            </button>
-          </a>
-          <a
-            className="flex flex-col flex-1 relative"
-            key={beat.name}
-            href={data.beat.url}
-          >
-            <h3>[new beat]</h3>
-            <Image
-              className="flex-1 rounded-br-lg"
-              fluid={beat.childImageSharp.fluid}
-            />
-            <button className="absolute bottom-2 left-0 right-0 mx-auto bg-white px-3 py-1 font-header sm:text-xl underline m-1 border-2  border-black rounded">
-              Listen Now
-            </button>
-          </a>
+            Dismiss
+          </button>
         </div>
-        <button
-          className="relative -bottom-2 text-sm text-gray-500 underline"
-          onClick={handleModalClose}
-        >
-          Dismiss
-        </button>
       </div>
     </Popup>
   );
