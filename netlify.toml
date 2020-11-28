@@ -10,6 +10,12 @@
   to = "https://teespring.com/stores/sadlilblackboy"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/submissions"
+  to = "https://www.toneden.io/sadlilblackboy/post/lo-fi-playlist-submissions"
+  status = 301
+  force = false
   
 [[redirects]]
   from = "/beats"
