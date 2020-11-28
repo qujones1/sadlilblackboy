@@ -1,18 +1,16 @@
+import loadable from "@loadable/component";
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
-import React, { useState } from "react";
+import React from "react";
 import { Layout } from "../components/Layout";
-import loadable from "@loadable/component";
 
-const Popup = loadable(() => import("reactjs-popup"));
+const NewReleasesModal = loadable(() =>
+  import("../components/NewReleasesModal")
+);
 
 const appleSvg = require("../assets/images/AppleSquare.png") as string;
 const spotifySvg = require("../assets/icons/spotify.svg") as string;
 const soundcloudSvg = require("../assets/images/soundcloud2.png") as string;
-
-const NUQ_LINK_PREFIX = "https://distrokid.com/hyperfollow/nuq/";
-const SLBB_AND_NUQ_LINK_PREFIX =
-  "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/";
 
 function MusicLinks({ soundcloudLink, appleMusicLink, spotifyLink }) {
   return (
@@ -58,22 +56,60 @@ function Beats({ data }) {
   );
 }
 
+// ORDER MATTERS
+const releases = {
+  counting_the_days: {
+    url:
+      "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days"
+  },
+  human_holiday: {
+    url: "https://distrokid.com/hyperfollow/nuq/human-holiday"
+  },
+  happy_ending: {
+    url: "https://distrokid.com/hyperfollow/nuq/happy-ending"
+  },
+  we_had_fun: {
+    url: "https://distrokid.com/hyperfollow/nuq/we-had-fun"
+  },
+  wilting_roses_fleeting_romance: {
+    url: "https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance"
+  },
+  late_nights: {
+    url: "https://distrokid.com/hyperfollow/nuq/late-nights"
+  },
+  sadlilblackboy_vol_2: {
+    url: "https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-2"
+  },
+  without_good_reason: {
+    url: "https://distrokid.com/hyperfollow/nuq/without-good-reason"
+  },
+  hope: {
+    url: "https://distrokid.com/hyperfollow/nuq/hope"
+  },
+  broken: {
+    url: "https://distrokid.com/hyperfollow/nuq/broken"
+  },
+  ghev: {
+    url: "https://distrokid.com/hyperfollow/nuq/ghev"
+  },
+  fH50: {
+    url: "https://distrokid.com/hyperfollow/nuq/fH50"
+  },
+  fk09: {
+    url: "https://distrokid.com/hyperfollow/nuq/fk09"
+  }
+};
+
 function Releases({ data }) {
   return (
     <section>
       <h2 className="mb-2">[recent releases]</h2>
       <div className="grid grid-cols-3 gap-1 overflow-y-auto h-48 sm:h-96">
-        {data.releases.nodes.map(img => {
-          const name = img.name.split("_")[1];
-          // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
-          const link =
-            name !== "counting-the-days"
-              ? NUQ_LINK_PREFIX + name
-              : SLBB_AND_NUQ_LINK_PREFIX + name;
-
+        {Object.entries(releases).map(([key, { url }]) => {
+          const release = data.releases.nodes.find(x => x.name === key);
           return (
-            <a key={img.name} href={link}>
-              <Image fluid={img.childImageSharp.fluid} />
+            <a key={release.name} href={url}>
+              <Image fluid={release.childImageSharp.fluid} />
             </a>
           );
         })}
@@ -83,20 +119,6 @@ function Releases({ data }) {
 }
 
 export default ({ data }) => {
-  const [modalOpen, setModalOpen] = useState(true);
-
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
-
-  const firstRelease = data.releases.nodes[0];
-  const name = firstRelease.name.split("_")[1];
-  // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
-  const link =
-    name !== "counting-the-days"
-      ? NUQ_LINK_PREFIX + name
-      : SLBB_AND_NUQ_LINK_PREFIX + name;
-
   return (
     <>
       <Layout className="space-y-2">
@@ -109,35 +131,7 @@ export default ({ data }) => {
         </section>
         <Releases data={data} />
       </Layout>
-      <Popup
-        className="modal"
-        open={modalOpen}
-        onClose={handleModalClose}
-        modal
-      >
-        <div className="w-full h-full bg-white shadow-2xl rounded-lg flex flex-col relative">
-          <div className="p-2">
-            <span className="font-serif text-2xl">[new release]</span>
-          </div>
-          <img
-            onClick={handleModalClose}
-            className="absolute top-2 right-2 cursor-pointer"
-            width={40}
-            height={40}
-            src={require("../assets/icons/close.svg")}
-          />
-          <a
-            className="min-h-0 flex-1 flex"
-            key={firstRelease.name}
-            href={link}
-          >
-            <Image
-              className="flex-1 rounded-b-lg"
-              fluid={firstRelease.childImageSharp.fluid}
-            />
-          </a>
-        </div>
-      </Popup>
+      <NewReleasesModal />
     </>
   );
 };

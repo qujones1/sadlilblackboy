@@ -3,9 +3,9 @@ module.exports = {
     title: "sadlilblackboy"
   },
   plugins: [
-    "gatsby-plugin-typescript",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-postcss",
+    { resolve: "gatsby-plugin-typescript" },
+    { resolve: "gatsby-plugin-react-helmet" },
+    { resolve: "gatsby-plugin-postcss" },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -13,8 +13,8 @@ module.exports = {
         path: `${__dirname}/src/assets`
       }
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    { resolve: "gatsby-transformer-sharp" },
+    { resolve: "gatsby-plugin-sharp" },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -23,10 +23,10 @@ module.exports = {
       }
     },
     {
-    resolve: `gatsby-plugin-facebook-pixel`,
-    options: {
-      pixelId: "785646585394990",
-    },
-  }
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "785646585394990"
+      }
+    }
   ]
 };
