@@ -1,12 +1,7 @@
-import loadable from "@loadable/component";
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
-
-const NewReleasesModal = loadable(() =>
-  import("../components/NewReleasesModal")
-);
 
 const appleSvg = require("../assets/images/AppleSquare.png") as string;
 const spotifySvg = require("../assets/icons/spotify.svg") as string;
@@ -104,7 +99,7 @@ function Releases({ data }) {
   return (
     <section>
       <h2 className="mb-2">[recent releases]</h2>
-      <div className="grid grid-cols-3 gap-1 overflow-y-auto h-48 sm:h-96">
+      <div className="grid grid-cols-3 gap-1">
         {Object.entries(releases).map(([key, { url }]) => {
           const release = data.releases.nodes.find(x => x.name === key);
           return (
@@ -131,7 +126,6 @@ export default ({ data }) => {
         </section>
         <Releases data={data} />
       </Layout>
-      <NewReleasesModal />
     </>
   );
 };

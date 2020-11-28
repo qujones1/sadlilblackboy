@@ -6,6 +6,11 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import Helmet from "react-helmet";
 import { Nav } from "./Nav";
+import loadable from "@loadable/component";
+
+const NewReleasesModal = loadable(() =>
+  import("../components/NewReleasesModal")
+);
 
 type Props = {
   header?: string;
@@ -66,6 +71,7 @@ export function Layout({ children, className, header }: Props) {
       <main className={`max-w-screen-md mx-auto p-2 ${className}`}>
         {header != null && <h1>[{header}]</h1>}
         {children}
+        <NewReleasesModal />
       </main>
     </>
   );
