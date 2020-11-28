@@ -19,7 +19,7 @@ const NAV_LINKS = [
     name: "Merch"
   },
   {
-    href: "/submit/",
+    href: "https://www.toneden.io/sadlilblackboy/post/lo-fi-playlist-submissions",
     name: "Submissions"
   },
   {
