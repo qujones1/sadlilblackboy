@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "gatsby-image";
 import { useStaticQuery, graphql } from "gatsby";
-import { useLocalStorage, writeStorage } from "@rehooks/local-storage";
+import { useLocalStorage } from "@rehooks/local-storage";
 import Popup from "reactjs-popup";
 
 const query = graphql`
@@ -34,18 +34,27 @@ const data = {
   }
 };
 
-const KEY = "new_releases_1";
+const KEY = "new_releases";
 
 export default function NewReleasesModal() {
   const { beat, song } = useStaticQuery(query);
-  const [modalOpen] = useLocalStorage(KEY, true);
+  const [modalLastSeenDate, setModalLastSeenDate] = useLocalStorage(KEY, 0);
 
   const handleModalClose = () => {
-    writeStorage(KEY, false);
+    setModalLastSeenDate(Date.now());
   };
 
+  // If never seen before or it's been at least 3 hours
+  const modalShouldBeOpen =
+    modalLastSeenDate == 0 || (Date.now() - modalLastSeenDate) / 36e5 >= 3;
+
   return (
-    <Popup className="modal" open={modalOpen} onClose={handleModalClose} modal>
+    <Popup
+      className="modal"
+      open={modalShouldBeOpen}
+      onClose={handleModalClose}
+      modal
+    >
       <div className="w-full h-full bg-white shadow-2xl rounded-lg flex flex-col relative p-4 border-4 border-black">
         <div className="flex flex-1 space-x-0.5">
           <a
