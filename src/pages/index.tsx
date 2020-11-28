@@ -3,22 +3,22 @@ import Image from "gatsby-image";
 import React from "react";
 import { Layout } from "../components/Layout";
 
-const appleSvg = require("../assets/images/AppleSquare.png") as string;
+const appleSvg = require("../assets/icons/apple.svg") as string;
 const spotifySvg = require("../assets/icons/spotify.svg") as string;
-const soundcloudSvg = require("../assets/images/soundcloud2.png") as string;
+const soundcloudSvg = require("../assets/icons/soundcloud.png") as string;
 
 function MusicLinks({ soundcloudLink, appleMusicLink, spotifyLink }) {
   return (
     <div className="inset-x-0 bottom-1 absolute flex justify-center">
-      <div className="rounded inline-flex p-2 bg-gray-800 items-center space-x-1">
-        <a href={spotifyLink}>
-          <img width={30} height={30} src={spotifySvg} />
+      <div className="rounded inline-flex p-2 bg-gray-800 items-center space-x-1 w-2/3 sm:w-5/12">
+        <a className="flex-1" href={spotifyLink}>
+          <img src={spotifySvg} />
         </a>
-        <a href={soundcloudLink}>
-          <img width={30} height={30} src={soundcloudSvg} />
+        <a className="flex-1" href={soundcloudLink}>
+          <img src={soundcloudSvg} />
         </a>
-        <a href={appleMusicLink}>
-          <img width={30} height={30} src={appleSvg} />
+        <a className="flex-1 relative -top-0.5" href={appleMusicLink}>
+          <img src={appleSvg} />
         </a>
       </div>
     </div>
@@ -149,7 +149,6 @@ export const query = graphql`
     }
     releases: allFile(
       filter: { relativeDirectory: { eq: "images/releases" } }
-      sort: { fields: [name], order: DESC }
     ) {
       nodes {
         ...Image_file

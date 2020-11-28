@@ -48,6 +48,10 @@ const SOCIAL_LINKS = [
   {
     href: "https://www.youtube.com/c/sadlilblackboy?sub_confirmation=1",
     imgSrc: require("../assets/icons/youtube.svg")
+  },
+  {
+    href: "https://twitter.com/sadlilblackboy",
+    imgSrc: require("../assets/icons/twitter.svg")
   }
 ];
 
