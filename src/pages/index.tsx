@@ -53,6 +53,12 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  hypnotized: {
+    url: "https://distrokid.com/hyperfollow/nuq/hypnotized"
+  },
+  leave_us: {
+    url: "https://distrokid.com/hyperfollow/nuq/leave-us"
+  },
   counting_the_days: {
     url:
       "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days"
@@ -94,20 +100,29 @@ const releases = {
     url: "https://distrokid.com/hyperfollow/nuq/fk09"
   }
 };
+const releaseOrderMap: Record<string, number> = Object.keys(releases).reduce(
+  (map, key, i) => {
+    map[key] = i;
+    return map;
+  },
+  {}
+);
 
 function Releases({ data }) {
   return (
     <section>
       <h2 className="mb-2">[recent releases]</h2>
       <div className="grid grid-cols-3 gap-1">
-        {Object.entries(releases).map(([key, { url }]) => {
-          const release = data.releases.nodes.find(x => x.name === key);
-          return (
-            <a key={release.name} href={url}>
-              <Image fluid={release.childImageSharp.fluid} />
-            </a>
-          );
-        })}
+        {data.releases.nodes
+          .slice()
+          .sort((a, b) => releaseOrderMap[a.name] - releaseOrderMap[b.name])
+          .map(release => {
+            return (
+              <a key={release.name} href={releases[release.name].url}>
+                <Image fluid={release.childImageSharp.fluid} />
+              </a>
+            );
+          })}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const query = graphql`
     song: file(relativePath: { eq: "images/releases/counting_the_days.jpg" }) {
       ...Image_file
     }
-    beat: file(relativePath: { eq: "images/releases/human_holiday.jpg" }) {
+    beat: file(relativePath: { eq: "images/releases/hypnotized.jpg" }) {
       ...Image_file
     }
   }
