@@ -4,10 +4,10 @@
 
 @layer base {
   h1 {
-    @apply font-serif text-xl sm:text-2xl mb-2;
+    @apply font-header text-xl sm:text-2xl mb-2;
   }
 
   h2 {
-    @apply font-serif text-lg sm:text-xl mb-2;
+    @apply font-header text-lg sm:text-xl mb-2;
   }
 }

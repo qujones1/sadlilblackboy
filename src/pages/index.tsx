@@ -63,7 +63,7 @@ function Releases({ data }) {
     <section>
       <h2 className="mb-2">[recent releases]</h2>
       <div className="grid grid-cols-3 gap-1 overflow-y-auto h-48 sm:h-96">
-        {data.releases.nodes.map((img) => {
+        {data.releases.nodes.map(img => {
           const name = img.name.split("_")[1];
           // PLEASE BE CONSISTENT IN JUST ONE THING QUENTIN UGH
           const link =
@@ -100,7 +100,6 @@ export default ({ data }) => {
   return (
     <>
       <Layout className="space-y-2">
-        <Releases data={data} />
         <section>
           <h2 className="mb-2">[browse]</h2>
           <div className="flex">
@@ -108,6 +107,7 @@ export default ({ data }) => {
             <Beats data={data} />
           </div>
         </section>
+        <Releases data={data} />
       </Layout>
       <Popup
         className="modal"

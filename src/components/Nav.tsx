@@ -8,47 +8,47 @@ const closeIcon = require("../assets/icons/close.svg") as string;
 const NAV_LINKS = [
   {
     href: "/",
-    name: "Home",
+    name: "Home"
   },
   {
     href: "/playlists/",
-    name: "Playlists",
+    name: "Playlists"
   },
   {
     href: "https://teespring.com/stores/sadlilblackboy/",
-    name: "Merch",
+    name: "Merch"
   },
   {
     href: "/submit/",
-    name: "Submissions",
+    name: "Submissions"
   },
   {
     href: "/contact/",
-    name: "Contact",
-  },
+    name: "Contact"
+  }
 ];
 
 const SOCIAL_LINKS = [
   {
     href: "https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X",
-    imgSrc: require("../assets/icons/spotify.svg"),
+    imgSrc: require("../assets/icons/spotify.svg")
   },
   {
     href: "https://soundcloud.com/nuq-the-most-dope",
-    imgSrc: require("../assets/icons/soundcloud.svg"),
+    imgSrc: require("../assets/icons/soundcloud.svg")
   },
   {
     href: "https://www.instagram.com/sadlilblackboy/",
-    imgSrc: require("../assets/icons/instagram.svg"),
+    imgSrc: require("../assets/icons/instagram.svg")
   },
   {
     href: "https://vm.tiktok.com/7xopMR/",
-    imgSrc: require("../assets/icons/tiktok.svg"),
+    imgSrc: require("../assets/icons/tiktok.svg")
   },
   {
     href: "https://www.youtube.com/c/sadlilblackboy?sub_confirmation=1",
-    imgSrc: require("../assets/icons/youtube.svg"),
-  },
+    imgSrc: require("../assets/icons/youtube.svg")
+  }
 ];
 
 const query = graphql`
@@ -73,7 +73,7 @@ export function Nav() {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
   const toggleNav = () => {
-    setMobileNavVisible((v) => !v);
+    setMobileNavVisible(v => !v);
   };
 
   const nav = NAV_LINKS.map(({ href, name }) =>
@@ -126,7 +126,7 @@ export function Nav() {
               fixed={data.logo.childImageSharp.fixed}
             />
           </Link>
-          <span className="font-serif text-xl sm:text-3xl">
+          <span className="font-header text-xl sm:text-3xl">
             [sadlilblackboy]
           </span>
           <div className="hidden sm:block ml-auto">{social}</div>
