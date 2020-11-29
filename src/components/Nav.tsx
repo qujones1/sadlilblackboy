@@ -1,6 +1,8 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import React, { useState } from "react";
+import classnames from "classnames";
+import { useLocation } from "@reach/router";
 
 const menuIcon = require("../assets/icons/menu.svg") as string;
 const closeIcon = require("../assets/icons/close.svg") as string;
@@ -19,7 +21,8 @@ const NAV_LINKS = [
     name: "Merch"
   },
   {
-    href: "https://www.toneden.io/sadlilblackboy/post/lo-fi-playlist-submissions",
+    href:
+      "https://www.toneden.io/sadlilblackboy/post/lo-fi-playlist-submissions",
     name: "Submissions"
   },
   {
@@ -74,6 +77,7 @@ const query = graphql`
 
 export function Nav() {
   const data = useStaticQuery(query);
+  const { pathname } = useLocation();
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
   const toggleNav = () => {
@@ -82,17 +86,19 @@ export function Nav() {
 
   const nav = NAV_LINKS.map(({ href, name }) =>
     href[0] === "/" ? (
-      <Link
-        activeClassName="border-b-2 border-black"
-        className="hover:opacity-50"
-        key={name}
-        to={href}
-      >
-        {name}
+      <Link className="w-full" key={name} to={href} onClick={toggleNav}>
+        <span
+          className={classnames(
+            "hover:opacity-50",
+            pathname === href && "border-b-2 border-black"
+          )}
+        >
+          {name}
+        </span>
       </Link>
     ) : (
-      <a className="hover:opacity-50" key={name} href={href}>
-        {name}
+      <a className="w-full" key={name} href={href}>
+        <span className="hover:opacity-50">{name}</span>
       </a>
     )
   );
@@ -111,12 +117,12 @@ export function Nav() {
     <>
       {mobileNavVisible && (
         <div className="flex flex-col inset-0 m-auto fixed w-full h-full bg-white z-10 p-4">
-          <div className="flex mb-8">
-            <nav className="flex flex-col items-start space-y-1 text-xl">
+          <div className="flex mb-4">
+            <nav className="flex flex-1 flex-col items-start space-y-1 py-2 text-2xl">
               {nav}
             </nav>
             <div className="ml-auto cursor-pointer" onClick={toggleNav}>
-              <img width={40} height={40} src={closeIcon} />
+              <img className="w-10 h-10" src={closeIcon} />
             </div>
           </div>
           {social}

@@ -2,6 +2,7 @@
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "@rehooks/local-storage": "^2.4.0",
+    "@types/classnames": "^2.2.11",
     "@types/loadable__component": "^5.13.1",
     "@types/react-dom": "^16.9.9",
     "@types/react-helmet": "^6.1.0",
