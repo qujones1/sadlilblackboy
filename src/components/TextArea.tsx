@@ -1,5 +1,6 @@
 import classnames from "classnames";
 import React from "react";
+import { useIOSInput } from "./useIOSInput";
 
 type Props = Readonly<{
   className?: string;
@@ -9,6 +10,8 @@ type Props = Readonly<{
 }>;
 
 export function TextArea({ className, label, name, placeholder }: Props) {
+  const inputRef = useIOSInput();
+
   return (
     <div className={classnames("w-full flex flex-col", className)}>
       <label className="text-sm" htmlFor={name}>
@@ -18,6 +21,7 @@ export function TextArea({ className, label, name, placeholder }: Props) {
         className="p-2 border border-gray-300 rounded-md shadow text-sm"
         name={name}
         placeholder={placeholder}
+        ref={inputRef}
         required
       />
     </div>
