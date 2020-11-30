@@ -10,52 +10,52 @@ const closeIcon = require("../assets/icons/close.svg") as string;
 const NAV_LINKS = [
   {
     href: "/",
-    name: "Home"
+    name: "Home",
   },
   {
     href: "/playlists/",
-    name: "Playlists"
+    name: "Playlists",
   },
   {
     href: "https://teespring.com/stores/sadlilblackboy/",
-    name: "Merch"
+    name: "Merch",
   },
   {
     href:
       "https://www.toneden.io/sadlilblackboy/post/lo-fi-playlist-submissions",
-    name: "Submissions"
+    name: "Submissions",
   },
   {
     href: "/contact/",
-    name: "Contact"
-  }
+    name: "Contact",
+  },
 ];
 
 const SOCIAL_LINKS = [
   {
     href: "https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X",
-    imgSrc: require("../assets/icons/spotify.svg")
+    imgSrc: require("../assets/icons/spotify.svg"),
   },
   {
     href: "https://soundcloud.com/nuq-the-most-dope",
-    imgSrc: require("../assets/icons/soundcloud.svg")
+    imgSrc: require("../assets/icons/soundcloud.svg"),
   },
   {
     href: "https://www.instagram.com/sadlilblackboy/",
-    imgSrc: require("../assets/icons/instagram.svg")
+    imgSrc: require("../assets/icons/instagram.svg"),
   },
   {
     href: "https://vm.tiktok.com/7xopMR/",
-    imgSrc: require("../assets/icons/tiktok.svg")
+    imgSrc: require("../assets/icons/tiktok.svg"),
   },
   {
     href: "https://www.youtube.com/c/sadlilblackboy?sub_confirmation=1",
-    imgSrc: require("../assets/icons/youtube.svg")
+    imgSrc: require("../assets/icons/youtube.svg"),
   },
   {
     href: "https://twitter.com/sadlilblackboy",
-    imgSrc: require("../assets/icons/twitter.svg")
-  }
+    imgSrc: require("../assets/icons/twitter.svg"),
+  },
 ];
 
 const query = graphql`
@@ -80,13 +80,13 @@ export function Nav() {
   const { pathname } = useLocation();
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
-  const toggleNav = () => {
-    setMobileNavVisible(v => !v);
+  const toggleMobileNav = () => {
+    setMobileNavVisible((v) => !v);
   };
 
   const nav = NAV_LINKS.map(({ href, name }) =>
     href[0] === "/" ? (
-      <Link className="w-full" key={name} to={href} onClick={toggleNav}>
+      <Link className="w-full" key={name} to={href}>
         <span
           className={classnames(
             "hover:opacity-50",
@@ -119,9 +119,11 @@ export function Nav() {
         <div className="flex flex-col inset-0 m-auto fixed w-full h-full bg-white z-10 p-4">
           <div className="flex mb-4">
             <nav className="flex flex-1 flex-col items-start space-y-1 py-2 text-2xl">
-              {nav}
+              {nav.map((e) =>
+                React.cloneElement(e, { onClick: toggleMobileNav })
+              )}
             </nav>
-            <div className="ml-auto cursor-pointer" onClick={toggleNav}>
+            <div className="ml-auto cursor-pointer" onClick={toggleMobileNav}>
               <img className="w-10 h-10" src={closeIcon} />
             </div>
           </div>
@@ -140,7 +142,10 @@ export function Nav() {
             [sadlilblackboy]
           </span>
           <div className="hidden sm:block ml-auto">{social}</div>
-          <div className="sm:hidden ml-auto cursor-pointer" onClick={toggleNav}>
+          <div
+            className="sm:hidden ml-auto cursor-pointer"
+            onClick={toggleMobileNav}
+          >
             <img width={40} height={40} src={menuIcon} />
           </div>
         </div>
