@@ -34,7 +34,7 @@ const data = {
   }
 };
 
-const KEY = "new_releases";
+const KEY = "new_releases1";
 
 export default function NewReleasesModal() {
   const { beat, song } = useStaticQuery(query);
