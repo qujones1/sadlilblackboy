@@ -1,375 +1,175 @@
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import Image from "gatsby-image";
 import React from "react";
-import styled from "@emotion/styled";
-import { Layout } from "../components/layout";
+import { Layout } from "../components/Layout";
 
-const appleSvg = require("../assets/AppleSquare.png") as string;
-const spotifySvg = require("../assets/spotify.svg") as string;
-const googlePng = require("../assets/googlePlay.png") as string;
-const soundcloudSvg = require("../assets/soundcloud2.png") as string;
+const appleSvg = require("../assets/icons/apple.svg") as string;
+const spotifySvg = require("../assets/icons/spotify.svg") as string;
+const soundcloudSvg = require("../assets/icons/soundcloud.png") as string;
 
-const Playlist = styled.div`
-  width: 100%;
-  position: relative;
-  padding-bottom: 50%;
+function MusicLinks({ soundcloudLink, appleMusicLink, spotifyLink }) {
+  return (
+    <div className="inset-x-0 bottom-1 absolute flex justify-center">
+      <div className="rounded inline-flex p-2 bg-gray-800 items-center space-x-1 w-2/3 sm:w-5/12">
+        <a className="flex-1" href={spotifyLink}>
+          <img src={spotifySvg} />
+        </a>
+        <a className="flex-1" href={soundcloudLink}>
+          <img src={soundcloudSvg} />
+        </a>
+        <a className="flex-1 relative -top-0.5" href={appleMusicLink}>
+          <img src={appleSvg} />
+        </a>
+      </div>
+    </div>
+  );
+}
 
-  iframe {
-    border: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+function Singles({ data }) {
+  return (
+    <div className="flex-grow relative">
+      <Image fluid={data.singles.childImageSharp.fluid} />
+      <MusicLinks
+        soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/singles"
+        appleMusicLink="https://music.apple.com/us/artist/sadlilblackboy/1475838174"
+        spotifyLink="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa"
+      />
+    </div>
+  );
+}
+
+function Beats({ data }) {
+  return (
+    <div className="flex-grow relative">
+      <Image fluid={data.beats.childImageSharp.fluid} />
+      <MusicLinks
+        soundcloudLink="https://soundcloud.com/nuq-the-most-dope/sets/beats"
+        appleMusicLink="https://music.apple.com/us/artist/nuq/1403168719"
+        spotifyLink="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X"
+      />
+    </div>
+  );
+}
+
+// ORDER MATTERS
+const releases = {
+  santa_tell_me: {
+    url: "https://distrokid.com/hyperfollow/nuq/santa-tell-me"
+  },
+  hypnotized: {
+    url: "https://distrokid.com/hyperfollow/nuq/hypnotized"
+  },
+  leave_us: {
+    url: "https://distrokid.com/hyperfollow/nuq/leave-us"
+  },
+  counting_the_days: {
+    url:
+      "https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days"
+  },
+  human_holiday: {
+    url: "https://distrokid.com/hyperfollow/nuq/human-holiday"
+  },
+  happy_ending: {
+    url: "https://distrokid.com/hyperfollow/nuq/happy-ending"
+  },
+  we_had_fun: {
+    url: "https://distrokid.com/hyperfollow/nuq/we-had-fun"
+  },
+  wilting_roses_fleeting_romance: {
+    url: "https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance"
+  },
+  late_nights: {
+    url: "https://distrokid.com/hyperfollow/nuq/late-nights"
+  },
+  sadlilblackboy_vol_2: {
+    url: "https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-2"
+  },
+  without_good_reason: {
+    url: "https://distrokid.com/hyperfollow/nuq/without-good-reason"
+  },
+  hope: {
+    url: "https://distrokid.com/hyperfollow/nuq/hope"
+  },
+  broken: {
+    url: "https://distrokid.com/hyperfollow/nuq/broken"
+  },
+  ghev: {
+    url: "https://distrokid.com/hyperfollow/nuq/ghev"
+  },
+  fH50: {
+    url: "https://distrokid.com/hyperfollow/nuq/fH50"
+  },
+  fk09: {
+    url: "https://distrokid.com/hyperfollow/nuq/fk09"
   }
-
-  @media (max-width: 800px) {
-  }
-`;
-
-const Content = styled.section`
-  display: flex;
-  @media (max-width: 800px) {
-    flex-wrap: wrap;
-  }
-`;
-
-const Page = styled.div`
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
-  flex-direction: column;
-`;
-
-const Header = styled.h1`
-  font-family: "edosz";
-  font-weight: 400;
-  text-align: center;
-  color: white;
-  margin-top: 4px;
-  margin-bottom: 8px;
-`;
-
-const StreamHeader = styled.h1`
-  display: flex;
-  font-family: "Helvetica Neue Condensed";
-  font-weight: 400;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-  background-color: white;
-  margin-bottom: 0;
-  padding-top: 4px;
-  padding-bottom: 12px;
-`;
-
-const Body = styled.div`
-  display: flex;
-  font-family: "Helvetica Neue Condensed";
-  font-weight: 400;
-  color: white;
-`;
-
-const ImgContainer = styled.a`
-  width: 100%;
-  @media (max-width: 800px) {
-    flex-basis: 33%;
-  }
-`;
-
-const StreamFrame = styled.div`
-  flex: 50%;
-  position: relative;
-`;
-
-const Band = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
-  border-radius: 8px;
-  padding: 5px 12px;
-  position: absolute;
-  z-index: 3;
-  bottom: 8px;
-  left: 155px;
-
-  @media (max-width: 800px) {
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,1);
-    padding: 0px 5px;
-    bottom: 4px;
-    left: 8px;
-  }
-
-  img {
-    width 30px;
-    padding-left: 3px;
-    padding-right: 2px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-`;
-
-const ReleaseFrame = styled.div`
-  flex: 50%;
-  position: relative;
-`;
-
-const ReleaseHeader = styled.h1`
-  display: flex;
-  font-family: "Helvetica Neue Condensed";
-  font-weight: 400;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-  background-color: white;
-  margin-bottom: 0;
-  padding-top: 4px;
-  padding-bottom: 12px;
-`;
-
-const MerchContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-
-  div {
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-  }
-
-  h1 {
-    margin-bottom: 0;
-    margin-left: 10px;
-    margin-right: 20px;
-    font-family: "Helvetica Neue Condensed";
-    font-weight: normal;
-  }
-`;
-
-export default ({ data }) => (
-  <Layout>
-    <Page>
-      <Header>Let's all be sad together</Header>
-      <Playlist>
-        <iframe
-          allow="autoplay"
-          src="https://www.youtube.com/embed/videoseries?list=PL8vjFV9ndmZuBfln4WFo8ZH_lhdCOP9us"
-        />
-      </Playlist>
-      <StreamHeader> Stream Everything, Everywhere </StreamHeader>
-      <Body>
-        <StreamFrame>
-          <Img className="imgBack" fluid={data.singles.childImageSharp.fluid} />
-          <Band>
-            <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/singles">
-              <img src={soundcloudSvg} />
-            </ImgContainer>
-            <ImgContainer href="https://music.apple.com/us/artist/sadlilblackboy/1475838174">
-              <img src={appleSvg} />
-            </ImgContainer>
-            <ImgContainer href="https://open.spotify.com/artist/2tQyRoSW35TIkZRp3Kqsfa">
-              <img src={spotifySvg} />
-            </ImgContainer>
-            <ImgContainer href="https://play.google.com/store/music/artist?id=Auvlyweyebd3pd5vqpgjcxcukiu">
-              <img src={googlePng} />
-            </ImgContainer>
-          </Band>
-        </StreamFrame>
-        <StreamFrame>
-          <Img className="imgBack" fluid={data.beats.childImageSharp.fluid} />
-          <Band>
-            <ImgContainer href="https://soundcloud.com/nuq-the-most-dope/sets/beats">
-              <img src={soundcloudSvg} />
-            </ImgContainer>
-            <ImgContainer href="https://music.apple.com/us/artist/nuq/1403168719">
-              <img src={appleSvg} />
-            </ImgContainer>
-            <ImgContainer href="https://open.spotify.com/artist/4oQFbIzjeTpjBFjB6Zri2X">
-              <img src={spotifySvg} />
-            </ImgContainer>
-            <ImgContainer href="https://play.google.com/store/music/artist/Nuq?id=A4rpx3jxzffw2uujehfixj7xbsq&hl=en">
-              <img src={googlePng} />
-            </ImgContainer>
-          </Band>
-        </StreamFrame>
-      </Body>
-      <Body>
-        <ReleaseFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/sadlilblackboyandnuq/counting-the-days">
-            <Img fluid={data.singleRelease.childImageSharp.fluid} />
-          </ImgContainer>
-        </ReleaseFrame>
-        <ReleaseFrame>
-          <ImgContainer href="https://distrokid.com/hyperfollow/nuq/hypnotized">
-            <Img fluid={data.beatRelease.childImageSharp.fluid} />
-          </ImgContainer>
-        </ReleaseFrame>
-      </Body>
-      <MerchContainer></MerchContainer>
-      <Content>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/human-holiday">
-          <Img fluid={data.holiday.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/happy-ending">
-          <Img fluid={data.happy.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/we-had-fun">
-          <Img fluid={data.whf.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
-          <Img fluid={data.wrfr.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/late-nights">
-          <Img fluid={data.latenights.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-2">
-          <Img fluid={data.vol2.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/without-good-reason">
-          <Img fluid={data.WithoutReason.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/hope">
-          <Img fluid={data.hope.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/broken">
-          <Img fluid={data.broken.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/ghev">
-          <Img fluid={data.alone.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/fH50">
-          <Img fluid={data.sad.childImageSharp.fluid} />
-        </ImgContainer>
-        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/fkO9">
-          <Img fluid={data.vol1.childImageSharp.fluid} />
-        </ImgContainer>
-      </Content>
-    </Page>
-  </Layout>
+};
+const releaseOrderMap: Record<string, number> = Object.keys(releases).reduce(
+  (map, key, i) => {
+    map[key] = i;
+    return map;
+  },
+  {}
 );
 
-export const query = graphql`
-  {
-    beatRelease: file(relativePath: { eq: "hypno.PNG" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    singleRelease: file(relativePath: { eq: "ctd.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
+function Releases({ data }) {
+  return (
+    <section>
+      <h2 className="mb-2">[recent releases]</h2>
+      <div className="grid grid-cols-3 gap-1">
+        {data.releases.nodes
+          .slice()
+          .sort((a, b) => releaseOrderMap[a.name] - releaseOrderMap[b.name])
+          .map(release => {
+            return (
+              <a key={release.name} href={releases[release.name].url}>
+                <Image fluid={release.childImageSharp.fluid} />
+              </a>
+            );
+          })}
+      </div>
+    </section>
+  );
+}
 
-    beats: file(relativePath: { eq: "beatsart.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+export default ({ data }) => {
+  return (
+    <>
+      <Layout className="space-y-2">
+        <section>
+          <h2 className="mb-2">[browse]</h2>
+          <div className="flex">
+            <Singles data={data} />
+            <Beats data={data} />
+          </div>
+        </section>
+        <Releases data={data} />
+      </Layout>
+    </>
+  );
+};
+
+export const query = graphql`
+  fragment Image_file on File {
+    name
+    childImageSharp {
+      fluid(maxWidth: 512) {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
-    singles: file(relativePath: { eq: "singleart.PNG" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
+  }
+
+  {
+    beats: file(relativePath: { eq: "images/beatsart.png" }) {
+      ...Image_file
     }
-    holiday: file(relativePath: { eq: "holiday.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
+    singles: file(relativePath: { eq: "images/singleart.PNG" }) {
+      ...Image_file
     }
-    happy: file(relativePath: { eq: "HappyEnding.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    whf: file(relativePath: { eq: "we_had_fun.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    wrfr: file(relativePath: { eq: "WRFR.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    latenights: file(relativePath: { eq: "latenights.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    vol2: file(relativePath: { eq: "vol2.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    WithoutReason: file(relativePath: { eq: "Without_good_reason.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    hope: file(relativePath: { eq: "Hope.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    broken: file(relativePath: { eq: "Broken.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    alone: file(relativePath: { eq: "alone.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    vol1: file(relativePath: { eq: "vol1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    sad: file(relativePath: { eq: "sad.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+    releases: allFile(
+      filter: { relativeDirectory: { eq: "images/releases" } }
+    ) {
+      nodes {
+        ...Image_file
       }
     }
   }

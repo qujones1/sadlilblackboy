@@ -1,130 +1,87 @@
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import React from "react";
-import styled from "@emotion/styled";
-import { Layout } from "../components/layout";
+import { Layout } from "../components/Layout";
+import { Select } from "../components/Select";
 
-const appleSvg = require("../assets/apple.svg") as string;
-const spotifySvg = require("../assets/spotify.svg") as string;
-const googlePng = require("../assets/googlePlay.png") as string;
-const amazonPng = require("../assets/amazon.png") as string;
-const soundcloudSvg = require("../assets/soundcloud2.png") as string;
+import { TextArea } from "../components/TextArea";
+import { TextInput } from "../components/TextInput";
 
-const Page = styled.div`
-  display: flex;
-  max-width: 600px;
-  margin: 0 auto;
-  flex-direction: column;
-  font-family: "Helvetica Neue Condensed";
-  color: white;
-  padding: 16px 8px;
-`;
-
-const FormContainer = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-  border-radius: 8px;
-  padding: 12px;
-
-  input,
-  textarea{
-    width: 90%;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    height: 35px;
-  }
-  select{
-    width: 90%;
-    margin-top: 4px;
-    font-size: 14px;
-    height: 35px;
-  }
-
-  label {
-    margin-top: 4px;
-    display: block;
-  }
-
-  textarea {
-    height: 100px;
-  }
-
-  text{
-    font-size:13px;
-    color: gray;
-    margin-bottom: 12px;
-  }
-
-  top{
-    font-size: 14px;
-    margin-top: 2px;
-    display: block;
-    margin-bottom: 12px;
-  }
-`;
-
-const SubmitButton = styled.button`
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 12px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 6px;
-  font-size: 16px;
-`;
-
-export default ({ data }) => (
-  <Layout>
-    <Page>
-      <h1>[submit]</h1>
-      <FormContainer>
-        <p>
-          Fill in the form below if you are looking for a chance to be added to
-          one of our spotify playlists. Provide a link to one of your songs that
-          you think will fit any of our playlists, and provide your email so
-          that we could reach out to you.
-        </p>
-        <form
-          name="submissions"
-          method="POST"
-          netlify-honeypot="bot-field"
-          data-netlify="true"
-          action="/success"
-        >
-          <top>⚠️Anything other than a spotify link will be deleted ⚠️</top>
-          <label>Spotify URL:</label>
-          <input
-            type="text"
+export default ({ _ }) => (
+  <Layout header="submissions">
+    <div className="space-y-4">
+      <p>
+        Fill in the form below if you are looking for a chance to be added to
+        one of our spotify playlists. Provide a link to one of your songs that
+        you think will fit any of our playlists, and provide your email so that
+        we could reach out to you.
+      </p>
+      <form
+        name="submissions"
+        method="POST"
+        netlify-honeypot="bot-field"
+        data-netlify="true"
+        action="/success"
+      >
+        <div className="space-y-3">
+          <TextInput label="Email" name="email" placeholder="name@domain.com" />
+          <TextInput
+            className="w-full"
+            label="Spotify URL"
             name="trackurl"
             placeholder="https://open.spotify.com/track/2xbAVLAt0sAyi5izoOjVVu"
-            required
           />
-          <label for="playlists">Choose preferred playlist:</label>
+          <div className="space-y-1">
+            <Select
+              label="Choose preferred playlist"
+              name="playlists"
+              options={[
+                {
+                  value: "Lofi Brokenhearts",
+                  description:
+                    "Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep",
+                },
+                {
+                  value: "Lofi Indie Pop & Rap",
+                  description: "Lofi Indie Pop & Rap",
+                },
+                {
+                  value: "Lofi & Smoke",
+                  description:
+                    "Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to",
+                },
+                {
+                  value: "Sadboy Vibe Check",
+                  description: "Sadboy Vibe Check 🖤",
+                },
+                {
+                  value: "90s Lofi Cafe",
+                  description:
+                    "90s Lofi Café - aesthetic jazzy beats to chill and relax to",
+                },
+                { value: "Luv-Fi", description: "Luv-Fi" },
+              ]}
+            />
 
-          <select name="playlists" id="playlist" required>
-            <option value="Lofi Brokenhearts">Lofi Brokenhearts 💔 - sad beats to cry yourself to sleep</option>
-            <option value="Lofi Indie Pop & Rap">Lofi Indie Pop & Rap</option>
-            <option value="Lofi & Smoke">Lofi & Smoke 💨 - trippy lofi and electronic beats to smoke to</option>
-            <option value="Sadboy Vibe check">Sadboy Vibe Check 🖤</option>
-            <option value="90s Lofi Cafe">90s Lofi Café - aesthetic jazzy beats to chill and relax to</option>
-            <option value="Luv-Fi">Luv-Fi</option>
-          </select>
-          <text>Submitting here will submit to all playlists. this is just your prefferred choice. </text>
-          <label>Email:</label>
-          <input type="text" name="email" placeholder="name@domain.com" />
-          <label>Describe your track:</label>
-          <textarea
-            name="Description"
-            placeholder="is this the song about you?"
-          />
-          <div>
-            <SubmitButton type="submit">Submit</SubmitButton>
+            <p className="border-l-4 border-gray-300 pl-2 text-gray-500 text-sm">
+              This is just your preferred choice: Your submission will be
+              considered for all playlists.
+            </p>
           </div>
-          <input type="hidden" name="form-name" value="submissions" />
-        </form>
-      </FormContainer>
-    </Page>
+
+          <TextArea
+            label="Describe your track"
+            name="Description"
+            placeholder="Is this song about you?"
+          />
+
+          <button
+            className="rounded bg-blue-400 text-white py-1 px-3"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+        <input type="hidden" name="form-name" value="submissions" />
+      </form>
+    </div>
   </Layout>
 );
