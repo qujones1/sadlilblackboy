@@ -53,8 +53,8 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
-  santa_tell_me: {
-    url: "https://distrokid.com/hyperfollow/nuq/santa-tell-me"
+  human_holiday2: {
+    url: "https://distrokid.com/hyperfollow/nuq/human-holiday-2"
   },
   hypnotized: {
     url: "https://distrokid.com/hyperfollow/nuq/hypnotized"
