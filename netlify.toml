@@ -58,3 +58,9 @@
   to = "https://distrokid.com/hyperfollow/nuqandjulianachahayed/put-your-records-on-2"
   status = 301
   force = false
+  
+[[redirects]]
+  from = "/human-holiday-2"
+  to = "https://distrokid.com/hyperfollow/nuq/human-holiday-2"
+  status = 301
+  force = false
