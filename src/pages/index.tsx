@@ -53,14 +53,11 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  sadlilblackboy_vol_3: {
+    url: "https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-three-2"
+  },
   human_holiday2: {
     url: "https://distrokid.com/hyperfollow/nuq/human-holiday-2"
-  },
-  hypnotized: {
-    url: "https://distrokid.com/hyperfollow/nuq/hypnotized"
-  },
-  leave_us: {
-    url: "https://distrokid.com/hyperfollow/nuq/leave-us"
   },
   counting_the_days: {
     url:
