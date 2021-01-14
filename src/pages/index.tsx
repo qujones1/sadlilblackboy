@@ -53,8 +53,8 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
-  withoutyou: {
-    url: "https://distrokid.com/hyperfollow/nuq/without-you"
+  staywithme: {
+    url: "https://distrokid.com/hyperfollow/nuq/stay-with-me"
   },
   sadlilblackboy_vol_3: {
     url: "https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-three-2"
