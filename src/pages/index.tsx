@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  crash: {
+    url: "https://distrokid.com/hyperfollow/nuq/crash"
+  },
   udontluvme: {
     url: "https://distrokid.com/hyperfollow/sadlilblackboy/u-dont-luv-me"
   },
