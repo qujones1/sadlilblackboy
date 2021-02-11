@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  keeptrying: {
+    url: "https://distrokid.com/hyperfollow/nuq/keep-trying"
+  },
   crash: {
     url: "https://distrokid.com/hyperfollow/nuq/crash"
   },
