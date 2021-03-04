@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  olvidar: {
+    url: "https://distrokid.com/hyperfollow/nuq/lo-vas-olvidar"
+  },
   keeptrying: {
     url: "https://distrokid.com/hyperfollow/nuq/keep-trying"
   },
