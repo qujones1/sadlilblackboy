@@ -21,6 +21,10 @@ const NAV_LINKS = [
     name: "Merch",
   },
   {
+    href: "https://sadlilblackboy.beatstars.com/",
+    name: "Buy Beats",
+  },
+  {
     href:
       "https://www.toneden.io/sadlilblackboy/post/lo-fi-playlist-submissions",
     name: "Submissions",
@@ -29,10 +33,7 @@ const NAV_LINKS = [
     href: "/contact/",
     name: "Contact",
   },
-  {
-    href: "https://sadlilblackboy.beatstars.com/",
-    name: "Buy Beats",
-  },
+
 ];
 
 const SOCIAL_LINKS = [
