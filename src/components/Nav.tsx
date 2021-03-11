@@ -29,6 +29,10 @@ const NAV_LINKS = [
     href: "/contact/",
     name: "Contact",
   },
+  {
+    href: "https://sadlilblackboy.beatstars.com/",
+    name: "Buy Beats",
+  },
 ];
 
 const SOCIAL_LINKS = [
