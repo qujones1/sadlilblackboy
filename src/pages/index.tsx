@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  silhouette: {
+    url: "https://distrokid.com/hyperfollow/nuq/silhouette"
+  },
   dontbescared: {
     url: "https://distrokid.com/hyperfollow/nuq/dont-be-scared"
   },
