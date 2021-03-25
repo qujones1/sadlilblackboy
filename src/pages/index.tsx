@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  runaway: {
+    url: "https://distrokid.com/hyperfollow/nuq/runaway"
+  },
   silhouette: {
     url: "https://distrokid.com/hyperfollow/nuq/silhouette"
   },
