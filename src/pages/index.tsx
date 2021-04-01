@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  fallen_angel: {
+    url: "https://distrokid.com/hyperfollow/nuq/fallen-angel"
+  },
   runaway: {
     url: "https://distrokid.com/hyperfollow/nuq/runaway"
   },
