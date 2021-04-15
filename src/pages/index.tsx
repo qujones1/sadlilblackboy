@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  luv_is_war: {
+    url: "https://distrokid.com/hyperfollow/sadlilblackboy/luv-is-war"
+  },
   fallen_angel: {
     url: "https://distrokid.com/hyperfollow/nuq/fallen-angel"
   },
