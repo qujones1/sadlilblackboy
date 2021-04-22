@@ -64,3 +64,9 @@
   to = "https://distrokid.com/hyperfollow/nuq/human-holiday-2"
   status = 301
   force = false
+  
+ [[redirects]]
+  from = "/monday-mix"
+  to = "https://www.toneden.io/sadlilblackboy/post/monday-mix-submission-unlock"
+  status = 301
+  force = false
