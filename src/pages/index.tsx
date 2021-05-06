@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  twoofus: {
+    url: "https://distrokid.com/hyperfollow/nuq/just-the-two-of-us"
+  },
   sakura: {
     url: "https://distrokid.com/hyperfollow/nuq/sakura"
   },
