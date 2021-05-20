@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  begood: {
+    url: "https://distrokid.com/hyperfollow/nuq/will-you-be-good"
+  },
   twoofus: {
     url: "https://distrokid.com/hyperfollow/nuq/just-the-two-of-us"
   },
