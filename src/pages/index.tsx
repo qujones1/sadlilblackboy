@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  dontgiveup: {
+    url: "https://distrokid.com/hyperfollow/nuq/dont-give-up"
+  },
   begood: {
     url: "https://distrokid.com/hyperfollow/nuq/will-you-be-good"
   },
