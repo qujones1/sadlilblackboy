@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  wewontspeaklikethisagain: {
+    url: "https://distrokid.com/hyperfollow/sadlilblackboy/we-wont-speak-like-this-again "
+  },
   dontgiveup: {
     url: "https://distrokid.com/hyperfollow/nuq/dont-give-up"
   },
