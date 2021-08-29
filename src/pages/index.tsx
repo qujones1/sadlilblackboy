@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  pureimagination: {
+    url: "https://distrokid.com/hyperfollow/nuq/pure-imagination "
+  },
   wewontspeaklikethisagain: {
     url: "https://distrokid.com/hyperfollow/sadlilblackboy/we-wont-speak-like-this-again "
   },

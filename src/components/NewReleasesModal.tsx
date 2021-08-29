@@ -18,7 +18,7 @@ const query = graphql`
     song: file(relativePath: { eq: "images/releases/wewontspeaklikethisagain.jpg" }) {
       ...Image_file
     }
-    beat: file(relativePath: { eq: "images/releases/dontgiveup.jpg" }) {
+    beat: file(relativePath: { eq: "images/releases/pureimagination.jpg" }) {
       ...Image_file
     }
   }
@@ -30,11 +30,11 @@ const data = {
       "https://distrokid.com/hyperfollow/sadlilblackboy/we-wont-speak-like-this-again "
   },
   beat: {
-    url: "https://distrokid.com/hyperfollow/nuq/dont-give-up"
+    url: "https://distrokid.com/hyperfollow/nuq/pure-imagination"
   }
 };
 
-const KEY = "new_releases";
+const KEY = "new_releases1";
 
 export default function NewReleasesModal() {
   const { beat, song } = useStaticQuery(query);
@@ -81,7 +81,7 @@ export default function NewReleasesModal() {
               key={beat.name}
               href={data.beat.url}
             >
-              <h3>[don't give up]</h3>
+              <h3>[pure imagination]</h3>
               <Image
                 className="flex-1 rounded-br-lg"
                 fluid={beat.childImageSharp.fluid}
