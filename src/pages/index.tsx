@@ -53,6 +53,9 @@ function Beats({ data }) {
 
 // ORDER MATTERS
 const releases = {
+  2012: {
+    url: "https://distrokid.com/hyperfollow/sadlilblackboy/2012"
+  },
   pureimagination: {
     url: "https://distrokid.com/hyperfollow/nuq/pure-imagination "
   },

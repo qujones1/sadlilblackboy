@@ -58,6 +58,9 @@ export default ({ _ }) => (
                     "90s Lofi Café - aesthetic jazzy beats to chill and relax to",
                 },
                 { value: "Luv-Fi", description: "Luv-Fi" },
+                { value: "The Rebel Music", description: "The Rebel Music" },
+                { value: "Snowy Nights", description: "Snowy Nights ❄️- A Lofi Christmas Playlist" },
+                { value: "Lo-Fi Remixes & Covers", description: "Lo-Fi Remixes & Covers" },
               ]}
             />
 

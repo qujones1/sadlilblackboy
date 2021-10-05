@@ -38,6 +38,22 @@ const playlists = [
     name: "Lofi & Smoke",
     url: "https://open.spotify.com/playlist/4NNvLZeUDLftDbdUwDyqrt",
   },
+  {
+    imgName: "rebelmusic",
+    name: "The Rebel Music",
+    url:
+      "https://open.spotify.com/playlist/447Wsi32NY9Ckm6Neg0vmo?si=267d116028944ef1",
+  },
+  {
+    imgName: "snowynights",
+    name: "Snowy Nights ❄️",
+    url: "https://open.spotify.com/playlist/3h2tED6F5pVPmYWcqpkdAU?si=80400e29184942e9",
+  },
+  {
+    imgName: "loficovers",
+    name: "Lo-Fi Remixes & Covers",
+    url: "https://open.spotify.com/playlist/6akjrp5uSUHkEEhC8KWHXY?si=7bf79dbf59af4b7f",
+  },
 ];
 
 export default ({ data }) => (
@@ -91,6 +107,27 @@ export const query = graphql`
       }
     }
     smoke: file(relativePath: { eq: "images/playlists/lofismoke.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 512) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    rebelmusic: file(relativePath: { eq: "images/playlists/rebelmusic.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 512) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    snowynights: file(relativePath: { eq: "images/playlists/snowynights.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 512) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    loficovers: file(relativePath: { eq: "images/playlists/loficovers.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 512) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
