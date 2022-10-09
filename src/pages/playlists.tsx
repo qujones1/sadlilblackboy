@@ -8,60 +8,60 @@ const playlists = [
     imgName: "indie",
     name: "Lofi Indie Pop & Rap",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/0TAWgrvtM2CbEA1i5LJKzn?si=gn06T5nxQF2GcNTdf4x15Q",
+      "https://open.spotify.com/embed/playlist/0TAWgrvtM2CbEA1i5LJKzn?si=gn06T5nxQF2GcNTdf4x15Q",
   },
   {
     imgName: "vibe",
     name: "Sadboy Vibe Check🖤",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/5aCocgqPZe6HzPpmFZ0xnh?si=wrrxPvRiTwabudKYSPGJ5Q",
+      "https://open.spotify.com/embed/playlist/5aCocgqPZe6HzPpmFZ0xnh?utm_source=generator",
   },
   {
     imgName: "brkn",
     name: "Lofi Brokenhearts💔",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw",
+      "https://open.spotify.com/embed/playlist/2JVL6yReaTAjfwLOlQyMmi?si=vJRSWz6RQZqXamXgpE7kHw",
   },
   {
     imgName: "luvfi",
     name: "Luv-Fi",
     url:
-      "https://open.spotify.com/user/obrrre72hc1w1ntf6zx7j216o/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA",
+      "https://open.spotify.com/embed/playlist/1ChoBnlB55d8LbV1RjEV2c?si=ulUB2ZVMQ2Cz4Pmq7d74MA",
   },
   {
     imgName: "cafe",
     name: "90s Lofi Cafe",
-    url: "https://open.spotify.com/playlist/1pSDbygGELt1cdNyhuuIK4",
+    url: "https://open.spotify.com/embed/playlist/1pSDbygGELt1cdNyhuuIK4",
   },
   {
     imgName: "smoke",
     name: "Lofi & Smoke",
-    url: "https://open.spotify.com/playlist/4NNvLZeUDLftDbdUwDyqrt",
+    url: "https://open.spotify.com/embed/playlist/4NNvLZeUDLftDbdUwDyqrt",
   },
   {
     imgName: "rebelmusic",
     name: "The Rebel Music",
     url:
-      "https://open.spotify.com/playlist/447Wsi32NY9Ckm6Neg0vmo?si=267d116028944ef1",
+      "https://open.spotify.com/embed/playlist/447Wsi32NY9Ckm6Neg0vmo?si=267d116028944ef1",
   },
   {
     imgName: "snowynights",
     name: "Snowy Nights ❄️",
-    url: "https://open.spotify.com/playlist/3h2tED6F5pVPmYWcqpkdAU?si=80400e29184942e9",
+    url: "https://open.spotify.com/embed/playlist/3h2tED6F5pVPmYWcqpkdAU?si=80400e29184942e9",
   },
   {
     imgName: "loficovers",
     name: "Lo-Fi Remixes & Covers",
-    url: "https://open.spotify.com/playlist/6akjrp5uSUHkEEhC8KWHXY?si=7bf79dbf59af4b7f",
+    url: "https://open.spotify.com/embed/playlist/6akjrp5uSUHkEEhC8KWHXY?si=7bf79dbf59af4b7f",
   },
 ];
 
 
 export default ({ data }) => (
   <Layout header="playlists">
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-1 gap-y-2">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-5 gap-y-2">
       {playlists.map((playlist) => (
-        <iframe className="text-sm" key={playlist.imgName} src={playlist.url} width="100%" height = "200px" frameborder="0" allowtransparency="true">
+        <iframe className="text-sm" key={playlist.imgName} src={playlist.url} width="106%" height = "210px" frameborder="0" allowtransparency="true">
           {playlist.name}
         </iframe>
       ))}
