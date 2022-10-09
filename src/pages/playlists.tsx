@@ -56,14 +56,14 @@ const playlists = [
   },
 ];
 
+
 export default ({ data }) => (
   <Layout header="playlists">
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-1 gap-y-2">
       {playlists.map((playlist) => (
-        <a className="text-sm" key={playlist.imgName} href={playlist.url}>
+        <iframe className="text-sm" key={playlist.imgName} src={playlist.url} width="100%" height = "200px" frameborder="0" allowtransparency="true">
           {playlist.name}
-          <Image fluid={data[playlist.imgName].childImageSharp.fluid} />
-        </a>
+        </iframe>
       ))}
     </div>
   </Layout>

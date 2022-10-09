@@ -186,8 +186,7 @@ export default ({ data }) => {
         <section>
           <h2 className="mb-2">[browse]</h2>
           <div className="flex">
-            <Singles data={data} />
-            <Beats data={data} />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL8vjFV9ndmZuBfln4WFo8ZH_lhdCOP9us" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </section>
         <Releases data={data} />
