@@ -16,13 +16,10 @@ const NAV_LINKS = [
     href: "/playlists/",
     name: "Playlists",
   },
+
   {
     href: "https://teespring.com/stores/sadlilblackboy/",
     name: "Merch",
-  },
-  {
-    href: "https://sadlilblackboy.beatstars.com/",
-    name: "Buy Beats",
   },
   {
     href:
@@ -32,6 +29,10 @@ const NAV_LINKS = [
   {
     href: "/contact/",
     name: "Contact",
+  },
+  {
+    href: "/staff/",
+    name: "About Us",
   },
 
 ];
