@@ -13,7 +13,7 @@
 }
 
 .right-panel {
-    display: inline-block;
+    display: inline-block flex;
     padding-top: 5px;
     padding-left: 20px;
     width: 50%
