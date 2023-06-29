@@ -68,7 +68,7 @@ export default ({ _ }) => (
             />
             </div>
           <label class="custom-uploader" for="file">Upload Files (.zip files only) </label>
-            <input id="file" accept=".zip" name="fileToUpload" type="file" />
+            <input id="file" accept=".zip,.rar,.7zip" name="fileToUpload" type="file" />
 
 
           <button
