@@ -144,9 +144,14 @@ export function Nav() {
               fixed={data.logo.childImageSharp.fixed}
             />
           </Link>
-          <span className="font-header text-xl sm:text-3xl">
-            [sadlilblackboy]
-          </span>
+         <div className="d-flex flex-column mb-2">
+            <div className="font-header text-xl sm:text-3xl">
+              [deuce who]
+            </div>
+            <div className="font-header text-xs sm:text-xxs">
+            brought to you by Bad Milk Media
+            </div>
+          </div>
           <div className="hidden sm:block ml-auto">{social}</div>
           <div
             className="sm:hidden ml-auto cursor-pointer"
