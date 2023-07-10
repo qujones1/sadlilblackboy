@@ -25,6 +25,12 @@ export default ({ _ }) => (
         <div className="space-y-3">
           <TextInput label="Name" name="Name" placeholder="Deuce Who" />
           <TextInput label="Email" name="email" placeholder="name@domain.com" />
+          <TextInput
+            className="w-full"
+            label="Download Link"
+            name="Download"
+            placeholder="https://drive.google.com/drive/"
+          />
           <div className="space-x-1-y-1">
             <Select
               label="Genre"
@@ -67,8 +73,7 @@ export default ({ _ }) => (
               ]}
             />
             </div>
-          <label class="custom-uploader" for="file">Upload Files (.zip files only) </label>
-            <input id="file" accept=".zip" name="fileToUpload" type="file" />
+            
 
 
           <button
