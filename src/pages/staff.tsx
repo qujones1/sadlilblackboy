@@ -10,8 +10,8 @@ const staff = [
     name: "Quentin",
     title: "Head Creator",
     quip:"Singing nigga",
-    social: "@Sadlillblackboy",
-    link: "https://www.instagram.com/sadlilblackboy/",
+    social: "@deuces.online",
+    link: "https://www.instagram.com/deuces.online/",
     bio:
       "Though his dance moves resemble a car dealership inflatable, he has immense musical talent. He plays more than ten instruments and creates music as both the producer nu.q and artist sadliblackboy, who combined have over 30K monthly listeners. He graduated from UMBC with a CompSci degree. When he’s not making music (or TikToks), he’s watching anime or working out. Born and raised in Howard County, MD, he now lives on the Baltimore waterfront and spends most of his money on crab legs and protein shakes."
   },
