@@ -18,7 +18,7 @@ const NAV_LINKS = [
   },
 
   {
-    href: "https://teespring.com/stores/sadlilblackboy/",
+    href: "https://numusic.shop/",
     name: "Merch",
   },
   {
